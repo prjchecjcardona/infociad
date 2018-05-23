@@ -9,7 +9,7 @@ function executeQuery($con, $sql){
         }
         return $fetched_data;
     }else{
-        die($con->errorInfo()[2]);
+        return $con->errorInfo()[2];
     }
 }
 

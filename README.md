@@ -1,8 +1,8 @@
 # InfoCIAD API REST documentation
 
 
-## Endpoint:
-### /login.php
+
+## /login.php
 
 **@params: POST**
 * user (string): nombre de usuario
@@ -20,16 +20,16 @@
                     "nombre": "Juan Camilo Cardona Gutiérrez"
                 }
             ]
-            ```
-    * Empty : Cuando el log no es válido se retorna un arreglo vacío
+        ```
+    * Array : Cuando el log no es válido se retorna un arreglo vacío
         * Ejm: 
         ```
             []
         ```
 
 
-## Endpoint:
-### /addActividadSemanal.php
+
+## /addActividadSemanal.php
 
 **@params: POST**
 * fecha (string): fecha de registro
@@ -39,24 +39,20 @@
 
 **@returns:**
 * array: 
-    * Object: {tipo_usuario, idusuario, nombre} : Cuando el log es válido se arroja el tipo del usuario ingresado.
-        * Ejm: 
-        ```
-        [
-            {
-
-            }
-        ]
-        ```
-    * Empty : Cuando el log no es válido se retorna un arreglo vacío
+    * Array : Cuando la inserción es válida retorna un arreglo vacío
         * Ejm: 
         ```    
         []
         ```
+    * String: Cuando ocurre algún error en la inserción retorna el detalle del error como string.
+        * Ejm: 
+        ```
+        "ERROR:  invalid input syntax for type date: \"hola\"\nLINE 1:"
+        ```
 
 
-## Endpoint:
-### /getBloques.php
+
+## /getBloques.php
 
 @params:GET
 * [opt]fk_campo (string): nombre del campo en la tabla que contiene la llave foranea
@@ -76,15 +72,15 @@
             }
         ]
         ```
-    * Empty : Cuando no hay registros
+    * Array : Cuando no hay registros
         * Ejm: 
         ```    
         []
         ```
 
 
-## Endpoint:
-### /getObjetivos.php
+
+## /getObjetivos.php
 
 **@params: GET**
 * [opt]fk_campo (string): nombre del campo en la tabla que contiene la llave foranea
@@ -104,15 +100,15 @@
             }
         ]
         ```
-    * Empty : Cuando no hay registros
+    * Array : Cuando no hay registros
         * Ejm: 
         ```    
         []
         ```
 
 
-## Endpoint:
-### /getProductos.php
+
+## /getProductos.php
 
 **@params: GET**
 * [opt]fk_campo (string): nombre del campo en la tabla que contiene la llave foranea
@@ -132,15 +128,15 @@
             }
         ]
         ```
-    * Empty : Cuando no hay registros
+    * Array : Cuando no hay registros
         * Ejm: 
         ```    
         []
         ```
 
 
-## Endpoint:
-### /getProyectos.php
+
+## /getProyectos.php
 
 **@params: GET**
 * [opt]fk_campo (string): nombre del campo en la tabla que contiene la llave foranea
@@ -160,15 +156,15 @@
             }
         ]
         ```
-    * Empty : Cuando no hay registros
+    * Array : Cuando no hay registros
         * Ejm: 
         ```    
         []
         ```
 
 
-## Endpoint:
-### /getDetalleActividad.php
+
+## /getDetalleActividad.php
 
 **@params: GET**
 * [opt]fk_campo (string): nombre del campo en la tabla que contiene la llave foranea
@@ -192,15 +188,15 @@
             }
         ]
         ```
-    * Empty : Cuando no hay registros
+    * Array : Cuando no hay registros
         * Ejm: 
         ```    
         []
         ```
 
 
-## Endpoint:
-### /search.php
+
+## /search.php
 
 **@params: GET**
 * search (string): palabra o palabras para buscar
@@ -218,7 +214,7 @@
             }
         ]
         ```
-    * Empty : Cuando no hay registros
+    * Array : Cuando no hay registros
         * Ejm: 
         ```    
         []
