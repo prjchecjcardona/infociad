@@ -12,6 +12,7 @@
 * array: 
     * Object: {tipo_usuario, idusuario, nombre} : Cuando el log es válido se arroja el tipo del usuario ingresado.
         * Ejm: 
+        ```
             [
                 {
                     "tipo_usuario": "ciad",
@@ -19,9 +20,12 @@
                     "nombre": "Juan Camilo Cardona Gutiérrez"
                 }
             ]
+            ```
     * Empty : Cuando el log no es válido se retorna un arreglo vacío
         * Ejm: 
+        ```
             []
+        ```
 
 
 ## Endpoint:
@@ -37,13 +41,18 @@
 * array: 
     * Object: {tipo_usuario, idusuario, nombre} : Cuando el log es válido se arroja el tipo del usuario ingresado.
         * Ejm: 
+        ```
         [
             {
 
             }
         ]
+        ```
     * Empty : Cuando el log no es válido se retorna un arreglo vacío
-        * Ejm: []
+        * Ejm: 
+        ```    
+        []
+        ```
 
 
 ## Endpoint:
@@ -57,6 +66,7 @@
 * array: 
     * Object: {idbloque, nombre, descripcion, proyecto_fk} : Cuando hay registros encontrados
         * Ejm: 
+        ```
         [
             {
                 "idbloque": 1,
@@ -65,8 +75,12 @@
                 "proyecto_fk": 1
             }
         ]
+        ```
     * Empty : Cuando no hay registros
-        * Ejm: []
+        * Ejm: 
+        ```    
+        []
+        ```
 
 
 ## Endpoint:
@@ -80,6 +94,7 @@
 * array: 
     * Object: {idobjetivo, nombre, descripcion, bloque_fk} : Cuando hay registros encontrados
         * Ejm: 
+        ```
         [
             {
                 "idobjetivo": 1,
@@ -88,8 +103,12 @@
                 "bloque_fk": 1
             }
         ]
+        ```
     * Empty : Cuando no hay registros
-        * Ejm: []
+        * Ejm: 
+        ```    
+        []
+        ```
 
 
 ## Endpoint:
@@ -103,6 +122,7 @@
 * array: 
     * Object: {idproducto, nombre, descripcion, objetivo_fk} : Cuando hay registros encontrados
         * Ejm: 
+        ```
         [
             {
                 "idproducto": 1,
@@ -111,8 +131,12 @@
                 "objetivo_fk": 1
             }
         ]
+        ```
     * Empty : Cuando no hay registros
-        * Ejm: []
+        * Ejm: 
+        ```    
+        []
+        ```
 
 
 ## Endpoint:
@@ -126,6 +150,7 @@
 * array: 
     * Object: {idproyecto, nombre, descripcion, cliente_fk} : Cuando hay registros encontrados
         * Ejm: 
+        ```
         [
             {
                 "idproyecto": 1,
@@ -134,8 +159,12 @@
                 "cliente_fk": 1
             }
         ]
+        ```
     * Empty : Cuando no hay registros
-        * Ejm: []
+        * Ejm: 
+        ```    
+        []
+        ```
 
 
 ## Endpoint:
@@ -149,6 +178,7 @@
 * array: 
     * Object: {iddetalle_actividad, fecha_inicial_planeadas, fecha_final_planeadas, fecha_inicial_real, fecha_final_real, porcentaje_cumplimiento, ciclica, producto_fk} : Cuando hay registros encontrados
         * Ejm: 
+        ```
         [
             {
                 "iddetalle_actividad": 1,
@@ -161,8 +191,12 @@
                 "producto_fk": 2
             }
         ]
+        ```
     * Empty : Cuando no hay registros
-        * Ejm: []
+        * Ejm: 
+        ```    
+        []
+        ```
 
 
 ## Endpoint:
@@ -175,6 +209,7 @@
 * array: 
     * Object: {id, nombre, type} : Cuando hay registros encontrados, se muestran todos los registros con su respectivo tipo que concuerdan con la búsqueda.
         * Ejm: 
+        ```
         [
             {
                 "id": 80,
@@ -182,5 +217,9 @@
                 "type": "detalle_actividad"
             }
         ]
+        ```
     * Empty : Cuando no hay registros
-        * Ejm: []
+        * Ejm: 
+        ```    
+        []
+        ```
