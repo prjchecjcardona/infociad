@@ -1,0 +1,126 @@
+.container-fluid {
+    margin-top: 5px;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.itemsSesion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.2em;
+}
+
+.agregarProyecto {
+    display: flex;
+    justify-content: right;
+}
+
+.buttonAgregar {
+    padding-bottom: 0.1em;
+    padding-top: 0.1em;
+}
+
+.centradoElementos {
+    display: flex;
+    justify-content: center;
+}
+
+.sizeIconCiad {
+    font-size: 6em;
+    color: red
+}
+
+.sizeIconChec {
+    font-size: 6em;
+    color: green
+}
+
+.ajusteAlerta {
+    width: 40%;
+    padding-top: 25px;
+}
+
+.pendientes{
+    width: 58%;
+}
+
+.elementosSobrantes{
+    display: flex;
+}
+
+.list-group-item {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.nav-item {
+    font-size: 28px;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+}
+
+.barraLateral {
+    width: 21%;
+}
+
+.contenidoDashboard{
+width: 100%;
+padding: 5px;
+}
+
+.columnaUno{
+    width: 49%;
+}
+
+.columnaDos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 49%;
+}
+
+.barraLateralCollapse {
+    width: 42px;
+    transition: all 0.5s ease-in-out;
+}
+
+.selector {
+    width: 31%;
+}
+
+.agrupacionLogo {
+    display: flex;
+    align-items: center;
+}
+
+.agrupacionSignOut {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.agrupacionBotones{
+    display: flex;
+    justify-content: flex-end
+}
+
+.marginBoton{
+    margin-left: 1em;
+}
+.customSelect{
+    display: flex;
+    justify-content: space-between;
+}
+
+
