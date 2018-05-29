@@ -1,8 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700');
-/***    left menu ****/
 
-/***********************  TOP Bar ********************/
+/*** left menu ***/
 
 .sidebar {
     width: 100%;
@@ -11,7 +10,7 @@
     transition: all 0.5s ease-in-out;
 }
 
-.bg-defoult {
+.bg-default {
     background-color: #343a40;
 }
 
@@ -150,18 +149,18 @@
     display: none;
 }
 
-.navbar-toggler-icon{
+.navbar-toggler-icon {
     font-size: 1.25rem;
 }
 
-.button-left{
+.button-left {
     display: flex;
 }
 
-.textoEstado{
+.textoEstado {
     font-size: 14px;
 }
 
-.info{
+.info {
     width: 13%;
 }

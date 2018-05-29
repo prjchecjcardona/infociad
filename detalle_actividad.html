@@ -12,9 +12,10 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/side-bar.css">
+    <link rel="stylesheet" href="css/fade-in.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>CIAD - Detalle Actividad</title>
+    <title>Detalle Actividad - CIAD</title>
 </head>
 
 <body>
@@ -61,8 +62,8 @@
                                 <i class="fa fa-circle text-success"></i> Disponible</a>
                         </div>
                     </div>
-                    <ul class="list-sidebar bg-defoult">
-                        <li>
+                    <ul class="list-sidebar bg-default">
+                        <!-- <li>
                             <a href="#" data-toggle="collapse" data-target="#dashboard" class="collapsed active">
                                 <i class="fa fa-th-large"></i>
                                 <span class="nav-label"> Proyectos </span>
@@ -73,7 +74,7 @@
                                     <a href="#">Voz del cliente</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="#">
                                 <i class="fas fa-boxes"></i>
@@ -167,52 +168,86 @@
             <div class="columnaUno">
                 <div class="customSelect">
 
-                    <!-- <label for="bloqueSelect">Bloque</label> -->
-                    <select class="form-control selector" id="proyectoSelect">
+                    <div class="sk-circle" id="proyectoLoader">
+                        <div class="sk-circle1 sk-child"></div>
+                        <div class="sk-circle2 sk-child"></div>
+                        <div class="sk-circle3 sk-child"></div>
+                        <div class="sk-circle4 sk-child"></div>
+                        <div class="sk-circle5 sk-child"></div>
+                        <div class="sk-circle6 sk-child"></div>
+                        <div class="sk-circle7 sk-child"></div>
+                        <div class="sk-circle8 sk-child"></div>
+                        <div class="sk-circle9 sk-child"></div>
+                        <div class="sk-circle10 sk-child"></div>
+                        <div class="sk-circle11 sk-child"></div>
+                        <div class="sk-circle12 sk-child"></div>
+                    </div>
 
+                    <div class="sk-circle" id="bloqueLoader">
+                        <div class="sk-circle1 sk-child"></div>
+                        <div class="sk-circle2 sk-child"></div>
+                        <div class="sk-circle3 sk-child"></div>
+                        <div class="sk-circle4 sk-child"></div>
+                        <div class="sk-circle5 sk-child"></div>
+                        <div class="sk-circle6 sk-child"></div>
+                        <div class="sk-circle7 sk-child"></div>
+                        <div class="sk-circle8 sk-child"></div>
+                        <div class="sk-circle9 sk-child"></div>
+                        <div class="sk-circle10 sk-child"></div>
+                        <div class="sk-circle11 sk-child"></div>
+                        <div class="sk-circle12 sk-child"></div>
+                    </div>
 
+                    <!-- <select class="form-control selector" id="proyectoSelect">
                     </select>
 
-                    <!-- <label for="bloqueSelect">Bloque</label> -->
-                    <select class="form-control selector" id="bloqueSelect">
+                    <select class="form-control selector" id="bloqueSelect" disabled="">
+                    </select> -->
 
-                    </select>
-
-
-                    <!-- <label for="objetivoSelect">Objetivo</label> -->
                     <select class="form-control selector" id="objetivoSelect" disabled="">
-
                     </select>
 
-
-                    <!-- <label for="ProductoSelect">Producto</label> -->
-                    <select class="form-control selector" id="ProductoSelect" disabled="">
-
+                    <select class="form-control selector" id="productoSelect" disabled="">
                     </select>
+
                 </div>
 
                 <br>
-                <div class="list-group">
-                    <a class="list-group-item list-group-item-action">Detalle Actividad</a>
-                    <a class="list-group-item list-group-item-action list-group-item-success">Item de detalle actividad terminado.</a>
-                    <a class="list-group-item list-group-item-action list-group-item-success">Item de detalle actividad terminado.</a>
-                    <a class="list-group-item list-group-item-action list-group-item-success">Item de detalle actividad terminado.</a>
-                    <a class="list-group-item list-group-item-action list-group-item-danger">Item de detalle actividad de Pendiente.</a>
-                    <a class="list-group-item list-group-item-action list-group-item-danger">Item de detalle actividad de Pendiente.</a>
-                    <a class="list-group-item list-group-item-action list-group-item-danger">Item de detalle actividad de Pendiente.</a>
-                    <a class="list-group-item list-group-item-action list-group-item-warning">Item de detalle actividad en ejecución.</a>
-                    <a class="list-group-item list-group-item-action list-group-item-warning">Item de detalle actividad en ejecución.</a>
-                    <a class="list-group-item list-group-item-action list-group-item-warning">Item de detalle actividad en ejecución.</a>
-
+                <h4>DETALLE ACTIVIDAD</h4>
+                <div class="list-group" id="listaDetalleActividad">
                 </div>
 
             </div>
 
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Resultado de la búsqueda</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="list-group resultadoBusqueda">
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <!-- <button type="button" class="btn btn-primary">Ir</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="columnaDos">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar...">
+                    <input type="text" class="form-control" placeholder="Buscar..." id="inputSearch">
                     <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="button">Ir</button>
+                        <button class="btn btn-secondary" type="button" data-toggle="modal" data-target=".bd-example-modal-lg" id="buttonSearch">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </span>
                 </div>
 
@@ -238,12 +273,12 @@
                 </div>
 
                 <div class="agrupacionBotones">
-                    <button type="button" class="btn btn-danger marginBoton">
+                    <button type="button" class="btn btn-danger marginBoton" id="cancelarBoton">
                         <i class="fas fa-times"></i> Cancelar</button>
-                    <button type="button" class="btn btn-warning marginBoton">
-                        <i class="fas fa-save"></i> Guardar Otro</button>
-                    <button type="button" class="btn btn-success marginBoton">
-                        <i class="fas fa-door-open"></i> Guardar y Salir</button>
+                    <button type="button" class="btn btn-warning marginBoton" id="guardarOtroBoton">
+                        <i class="fas fa-save"></i> Guardar y realizar otro registro</button>
+                    <button type="button" class="btn btn-success marginBoton" id="guardarSalirBoton">
+                        <i class="fas fa-door-open"></i> Guardar y salir</button>
                 </div>
 
             </div>

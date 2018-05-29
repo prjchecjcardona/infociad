@@ -19,7 +19,7 @@ function logQuery($con, $usr, $pwd){
 }
 
 function actSemanalQuery($con, $fecha, $descripcion, $idusuario, $detalleactividad){
-    $sql = "INSERT INTO registro_actividad_semanal VALUES(nextval('registro_actividad_semanal_sec'), '$fecha', '$descripcion', $idusuario, '$detalleactividad')";
+    $sql = "INSERT INTO registro_actividad_semanal VALUES(nextval('registro_actividad_semanal_sec'), '$fecha', '$descripcion', '$detalleactividad', $idusuario)";
     return executeQuery($con, $sql);
 }
 
