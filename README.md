@@ -27,6 +27,27 @@
             []
         ```
 
+## /logout.php
+
+**@params: POST**
+* Ninguno
+
+**@returns:**
+* true
+
+
+## /validateSession.php
+
+**@params: POST**
+* idusuario (integer): id del usuario logueado.
+
+
+**@returns:**
+* array: 
+    * true: Cuando se valida la sesión correctamente.
+
+    * false : Cuando no se valida una sesión creada.
+
 
 
 ## /addActividadSemanal.php

@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/side-bar.css">
     <link rel="stylesheet" href="css/fade-in.css">
-    <link rel="stylesheet" href="css/detalle-actividad.css">
+    <link rel="stylesheet" href="css/bitacora.css">
 
-    <title>Detalle Actividad - CIAD</title>
+    <title>Bitacora - CIAD</title>
 </head>
 
 <body>
@@ -33,6 +33,13 @@
             </a>
         </div>
         <div class="agrupacionSignOut">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search" id="inputSearch">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg"
+                    id="buttonSearch">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="dashboard_ciad.html" data-toggle="tooltip" data-placement="left" title="Menú Principal">
@@ -45,6 +52,7 @@
                     </a>
                 </li>
             </ul>
+
         </div>
     </nav>
 
@@ -130,7 +138,7 @@
 
         <div class="contenido">
             <div class="columnaUno">
-                <h4>AÑADIR ACTIVIDAD SEMANAL</h4>
+                <h4>AÑADIR REGISTRO A LA BITÁCORA</h4>
                 <div class="customSelect">
 
                     <div class="sk-circle" id="proyectoLoader">
@@ -176,16 +184,33 @@
                     </select>
 
                 </div>
-                <small id="helpId" class="form-text text-muted">Selecciona las opciones correspondientes hasta llegar a producto para mostrar la lista de actividades</small>
+                <small id="helpId" class="form-text text-muted">Selecciona las opciones correspondientes hasta llegar a la selección de producto, asi se habilitará los campos
+                    de añadir registro de la bitácora.</small>
 
 
                 <br>
-                <h4>LISTADO DE ACTIVIDADES</h4>
-                <div class="list-group" id="listaDetalleActividad">
+                <!-- <div class="list-group" id="listaDetalleActividad">
+                </div> -->
 
+                <div class="form-group">
+                    <label for="">Título</label>
+                    <input type="text" class="form-control" name="" id="tituloRegistro" aria-describedby="helpId" placeholder="" disabled="">
+                    <small id="helpId" class="form-text text-muted">Ingresa el título del registro.</small>
+                </div>
+                <div class="form-group">
+                    <label for="">Descripción</label>
+                    <textarea class="form-control" name="" id="descripcionRegistro" rows="5" disabled=""></textarea>
+                    <small id="helpId" class="form-text text-muted">Ingresa la descripción del registro.</small>
                 </div>
 
-
+                <div class="agrupacionBotones">
+                    <button type="button" class="btn btn-danger marginBoton" id="cancelarBoton">
+                        <i class="fas fa-times"></i> Cancelar</button>
+                    <button type="button" class="btn btn-warning marginBoton" id="guardarOtroBoton">
+                        <i class="fas fa-save"></i> Guardar y realizar otro registro</button>
+                    <button type="button" class="btn btn-success marginBoton" id="guardarSalirBoton">
+                        <i class="fas fa-door-open"></i> Guardar y salir</button>
+                </div>
             </div>
 
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -210,21 +235,21 @@
                 </div>
             </div>
 
-            <div class="columnaDos">
-                <div class="input-group">
+           
+                <!-- <div class="input-group">
                     <input type="text" class="form-control" placeholder="Buscar..." id="inputSearch">
                     <span class="input-group-btn">
                         <button class="btn btn-secondary" type="button" data-toggle="modal" data-target=".bd-example-modal-lg" id="buttonSearch">
                             <i class="fas fa-search"></i>
                         </button>
                     </span>
-                </div>
+                </div> -->
 
 
-                <div class="grupoDescripcionEvidencia">
+               <!--  <div class="grupoDescripcionEvidencia">
 
                     <div class="form-group">
-                        <label for="descripcionArea">Descripción Actividad Semanal</label>
+                        <label for="descripcionArea">Descripción</label>
                         <textarea class="form-control" id="descripcionArea" rows="6"></textarea>
                     </div>
 
@@ -239,18 +264,11 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="agrupacionBotones">
-                    <button type="button" class="btn btn-danger marginBoton" id="cancelarBoton">
-                        <i class="fas fa-times"></i> Cancelar</button>
-                    <button type="button" class="btn btn-warning marginBoton" id="guardarOtroBoton">
-                        <i class="fas fa-save"></i> Guardar y realizar otro registro</button>
-                    <button type="button" class="btn btn-success marginBoton" id="guardarSalirBoton">
-                        <i class="fas fa-door-open"></i> Guardar y salir</button>
-                </div>
 
-            </div>
+
+          
 
 
 
@@ -268,6 +286,6 @@
 <script src="https://unpkg.com/promise-polyfill"></script>
 <script src="js/elements/file-input.js"></script>
 <script src="js/elements/side-bar.js"></script>
-<script src="js/detalle_actividad.js"></script>
+<script src="js/bitacora_añadir_ciad.js"></script>
 
 </html>

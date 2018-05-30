@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/side-bar.css">
     <link rel="stylesheet" href="css/fade-in.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/generar-informe.css">
 
     <title>Detalle Actividad - CIAD</title>
 </head>
@@ -63,9 +63,23 @@
                         </div>
                     </div>
                     <ul class="list-sidebar bg-default">
-  
+                        <!-- <li>
+                            <a href="#" data-toggle="collapse" data-target="#dashboard" class="collapsed active">
+                                <i class="fa fa-th-large"></i>
+                                <span class="nav-label"> Bitácora</span>
+                                <span class="fa fa-chevron-left pull-right"></span>
+                            </a>
+                            <ul class="sub-menu collapse" id="dashboard">
+                                <li class="active">
+                                    <a href="#">Voz del cliente</a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">Voz del cliente</a>
+                                </li>
+                            </ul>
+                        </li> -->
                         <li>
-                            <a href="#">
+                            <a href="detalle_actividad.html">
                                 <i class="fas fa-boxes"></i>
                                 <span class="nav-label">Añadir Actividad</span>
                             </a>
@@ -88,7 +102,27 @@
                                 <span class="nav-label">Generar informe</span>
                             </a>
                         </li>
-                        
+                        <li>
+                            <a href="#" data-toggle="collapse" data-target="#bitacora" class="collapsed active">
+                                <i class="fas fa-book"></i>
+                                <span class="nav-label">Bitácora</span>
+                                <span class="fa fa-chevron-left pull-right"></span>
+                            </a>
+                            <ul class="sub-menu collapse" id="bitacora">
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-eye"></i>
+                                        <span class="nav-label">Ver Bitácora</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <span class="nav-label">Añadir Bitácora</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </aside>
@@ -123,8 +157,6 @@
 <script src="js/elements/side-bar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
 <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
-<!-- <script src="js/elements/jspdf.min.js"></script>
-<script src="js/elements/jspdf.debug.js"></script> -->
 <script src="js/generar_informe.js"></script>
 
 </html>

@@ -82,6 +82,9 @@ function asignarEventoObjetivo() {
 }
 
 function asignarEventoProducto() {
+    $('#productoSelect').click(function () {
+        habilitarCamposRegistro();
+    });
     $('#productoSelect').change(function () {
         $('#listaDetalleActividad').empty()
         $("#listaDetalleActividad").replaceWith(`<div class="sk-circle" id="detalleActividadLoader">
@@ -389,5 +392,12 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro) {
         }
     })
 
+
+}
+
+function habilitarCamposRegistro() {
+
+    $('#tituloRegistro').removeAttr('disabled');
+    $('#descripcionRegistro').removeAttr('disabled');
 
 }
