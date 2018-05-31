@@ -127,6 +127,28 @@
         []
         ```
 
+## /addBitacora.php
+
+**@params: POST**
+* titulo (string): titulo del registro
+* fecha (string): fecha de registro
+* descripcion (string) : descripcion de la actividad
+* producto_fk (integer) : id del producto al que va enlazado el registro
+
+**@returns:**
+* array: 
+    * Array : Cuando la inserción es válida retorna un arreglo vacío
+        * Ejm: 
+        ```    
+        []
+        ```
+    * String: Cuando ocurre algún error en la inserción retorna el detalle del error como string.
+        * Ejm: 
+        ```
+        "ERROR:  invalid input syntax for type date: \"hola\"\nLINE 1:"
+        ```
+
+
 
 ## /getBitacora.php
 

@@ -44,3 +44,8 @@ function searchItemQuery($con, $keyword){
     (select iddetalle_actividad as id, nombre, 'detalle_actividad' as type from detalle_actividad where UPPER(nombre) like UPPER('%$keyword%'))";
     return executeQuery($con, $sql);
 }
+
+function addBitacoraQuery($con, $titulo, $fecha, $descripcion, $producto_fk){
+    $sql = "INSERT INTO registro_actividad_semanal VALUES(nextval('bitacora_sec'), '$titulo', '$fecha', '$descripcion', $producto_fk)";
+    return executeQuery($con, $sql);
+}

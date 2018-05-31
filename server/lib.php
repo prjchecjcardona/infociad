@@ -45,6 +45,10 @@ class InfoApi
         return searchItemQuery($this->con, $keyword);
     }
 
+    public function addRegistroBitacora($titulo, $fecha, $descripcion, $producto_fk){
+        return addBitacoraQuery($this->con, $titulo, $fecha, $descripcion, $producto_fk);
+    }
+
 
 
     
