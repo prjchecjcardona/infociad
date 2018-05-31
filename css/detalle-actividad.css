@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 body {
     font-family: 'Nunito', sans-serif;
 }
@@ -79,14 +78,18 @@ body {
 }
 
 .columnaUno {
-    width: 49%;
+    width: 59%;
 }
 
 .columnaDos {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 49%;
+    width: 39%;
+}
+
+.selectoresPosicion {
+    width: 100%
 }
 
 .barraLateralCollapse {
@@ -96,6 +99,7 @@ body {
 
 .selector {
     width: 31%;
+    margin-right: 0.5%
 }
 
 .agrupacionLogo {
@@ -111,7 +115,8 @@ body {
 
 .agrupacionBotones {
     display: flex;
-    justify-content: flex-end
+    justify-content: flex-end;
+    z-index: 500px;
 }
 
 .marginBoton {
@@ -124,10 +129,16 @@ body {
 }
 
 #listaDetalleActividad {
-    max-height: 30em;
+    max-height: 25em;
     overflow: auto;
     font-size: 14px;
 }
+
+.tituloSelect {
+    display: flex;
+    justify-content: space-around
+}
+
 
 .sk-circle {
     margin-left: 8%;

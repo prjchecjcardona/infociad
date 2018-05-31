@@ -95,6 +95,7 @@ body {
 
 .selector {
     width: 31%;
+    margin-right: 0.5%
 }
 
 .agrupacionLogo {
@@ -127,6 +128,12 @@ body {
     overflow: auto;
     font-size: 14px;
 }
+
+.tituloSelect {
+    display: flex;
+    justify-content: space-around
+}
+
 
 .sk-circle {
     margin-left: 8%;

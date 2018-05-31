@@ -1,10 +1,9 @@
 $(document).ready(function () {
-
+    validarSesion();
     $('[data-toggle="tooltip"]').tooltip()
     cargarProyecto();
     cargarBloque(1);
-    validarSesion();
-
+  
     $('#logoutButton').click(function () {
         logout()
     });
@@ -329,8 +328,6 @@ function buscar(busqueda) {
     }
 }
 
-
-//Funcion para parsear la fecha al formato posgresql
 function formatDate(date) {
     var d = new Date(date),
         month = '' + (d.getMonth() + 1),
@@ -403,25 +400,8 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro) {
 
 }
 
-
-function cargarBitacora(idproducto) {
-    var data ={
-        fk_campo: "producto_fk",
-        fk_id: idproducto
-    }
-    $.ajax({
-        type: "get",
-        url: "server/getBitacora.php",
-        data: data,
-        dataType: "json",
-        success: function (response) {
-            
-        }
-    });
-}
-
-
 function habilitarCamposRegistro() {
+
     $('#tituloRegistro').removeAttr('disabled');
     $('#descripcionRegistro').removeAttr('disabled');
 
@@ -471,4 +451,3 @@ function logout() {
 
 
 }
-

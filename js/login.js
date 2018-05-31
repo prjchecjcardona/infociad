@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    localStorage.clear()
     $('#enviarLogueo').click(function (e) {
         $('.sk-folding-cube').show();
         $('#formularioIngreso').hide();
@@ -33,8 +34,12 @@ $(document).ready(function () {
                     }, );
                 } else {
                     if (response[0].tipo_usuario == "ciad") {
+                        var idusuario = response[0].idusuario
+                        localStorage.setItem('idusuario', idusuario)
                         window.location.href = "dashboard_ciad.html"
                     } else {
+                        var idusuario = response[0].idusuario
+                        localStorage.setItem('idusuario', idusuario)
                         window.location.href = "dashboard_chec.html"
                     }
                 }

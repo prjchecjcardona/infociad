@@ -164,3 +164,9 @@
 .info {
     width: 13%;
 }
+
+.customCollapseUno {
+    display: flex !important;
+    align-items: baseline;
+    justify-content: space-between;
+}

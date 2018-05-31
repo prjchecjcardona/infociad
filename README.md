@@ -128,6 +128,33 @@
         ```
 
 
+## /getBitacora.php
+
+**@params: GET**
+* [opt]fk_campo (string): nombre del campo en la tabla que contiene la llave foranea
+* [opt]fk_id (integer): id del registro foráneo
+
+**@returns:**
+* array: 
+    * Object: {idbitacora, titulo, fecha, descripcion, producto_fk} : Cuando hay registros encontrados
+        * Ejm: 
+        ```
+        [
+            {
+                "idbitacora": 1,
+                "titulo": "abc.",
+                "fecha": "|",
+                "descripcion": "adc.",
+                "producto_fk": 1,
+            }
+        ]
+        ```
+    * Array : Cuando no hay registros
+        * Ejm: 
+        ```    
+        []
+        ```
+
 
 ## /getProductos.php
 
