@@ -1,8 +1,8 @@
 $(document).ready(function () {
     validarSesion();
-    $('[data-toggle="tooltip"]').tooltip()
     cargarProyecto();
     cargarBloque(1);
+    $('[data-toggle="tooltip"]').tooltip()
 
     $('#logoutButton').click(function () {
         logout()
@@ -17,7 +17,13 @@ $(document).ready(function () {
     $('#guardarOtroBoton').click(function () {
         var descripcion = $('#descripcionArea').val()
         var iddetalleactividad = $('.list-group-item-warning').attr("value")
-        addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro');
+        if ($('#checkboxBitacora').prop('checked')) {
+            addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro', true);
+
+        } else {
+            addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro', false);
+
+        }
     });
 
     //Ruta boton guardar y salir
@@ -31,6 +37,15 @@ $(document).ready(function () {
     $('#cancelarBoton').click(function () {
         window.location.href = "dashboard_ciad.html"
     });
+
+    $('#checkboxBitacora').change(function () {
+        if ($(this).prop('checked')) {
+            $('#tituloBitacora').removeAttr("disabled");
+        } else {
+            $('#tituloBitacora').attr("disabled", "");
+        }
+
+    })
 
 });
 
@@ -122,11 +137,11 @@ function cargarProyecto() {
                 swal("ERROR HAMIJO!")
             } else {
                 $("#proyectoLoader").replaceWith(`
-    <select class="form-control selector" id="proyectoSelect"></select>
+    <select class="form-control selector custom-select" id="proyectoSelect"></select>
     `);
 
                 $('#proyectoSelect').append(`
-                    <option disabled="">Selecciona...</option>
+                    <option>Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#proyectoSelect').append(`
@@ -164,10 +179,10 @@ function cargarBloque(idproyecto) {
                 }, );
             } else {
                 $("#bloqueLoader").replaceWith(`
-                <select class="form-control selector" id="bloqueSelect"></select>
+                <select class="form-control selector custom-select" id="bloqueSelect"></select>
                 `);
                 $('#bloqueSelect').append(`
-                    <option disabled="">Selecciona...</option>
+                    <option>Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#bloqueSelect').append(`
@@ -203,10 +218,10 @@ function cargarObjetivo(idbloque) {
                     closeOnConfirm: false
                 }, );
             } else {
-                $("#objetivoLoader").replaceWith(`<select class="form-control selector" id="objetivoSelect">
+                $("#objetivoLoader").replaceWith(`<select class="form-control selector custom-select" id="objetivoSelect">
                 </select>`);
                 $('#objetivoSelect').append(`
-                    <option disabled="">Selecciona...</option>
+                    <option>Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#objetivoSelect').append(`
@@ -242,10 +257,10 @@ function cargarProducto(idobjetivo) {
                     closeOnConfirm: false
                 }, );
             } else {
-                $("#productoLoader").replaceWith(`<select class="form-control selector" id="productoSelect">
+                $("#productoLoader").replaceWith(`<select class="form-control selector custom-select" id="productoSelect">
                 </select>`);
                 $('#productoSelect').append(`
-                    <option disabled="">Selecciona...</option>
+                    <option>Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#productoSelect').append(`
@@ -337,7 +352,7 @@ function formatDate(date) {
     return [year, month, day].join('-');
 }
 
-function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro) {
+function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro, bitacora) {
 
     var fecha = formatDate(new Date())
 
@@ -359,6 +374,11 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro) {
         confirmButtonText: 'Si, Guardar'
     }).then((result) => {
         if (result.value) {
+
+            if (bitacora) {
+                addBitacora();
+            }
+
             $.ajax({
                 type: "post",
                 url: "server/addActividadSemanal.php",
@@ -438,6 +458,27 @@ function logout() {
         }
     });
 
+}
 
+function addBitacora(guardarOtro) {
+
+    var fecha = formatDate(new Date())
+
+    var data = {
+        titulo: $('#tituloBitacora').val(),
+        fecha: fecha,
+        descripcion: $('#descripcionArea').val(),
+        producto_fk: $('#productoSelect option:selected').attr("value")
+    }
+
+    $.ajax({
+        type: "post",
+        url: "server/addBitacora.php",
+        data: data,
+        dataType: "json",
+        success: function (response) {
+
+        }
+    });
 
 }

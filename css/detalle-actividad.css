@@ -129,7 +129,7 @@ body {
 }
 
 #listaDetalleActividad {
-    max-height: 25em;
+    max-height: 22em;
     overflow: auto;
     font-size: 14px;
 }
@@ -139,10 +139,13 @@ body {
     justify-content: space-around
 }
 
+.form-group{
+    margin-bottom: 0.5em;
+}
 
 .sk-circle {
-    margin-left: 8%;
-    margin-right: 8%;
+    margin-left: 11%;
+    margin-right: 11%;
     width: 30px;
     height: 30px;
     position: relative;
