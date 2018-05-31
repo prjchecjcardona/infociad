@@ -1,8 +1,8 @@
 <?php
 
 function executeQuery($con, $sql){
-    if($con->query($sql)){
-        $result = $con->query($sql);
+    $result = $con->query($sql);
+    if($result){
         $fetched_data = array();
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
             array_push($fetched_data, $row);
