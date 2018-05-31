@@ -126,7 +126,7 @@ function cargarProyecto() {
     `);
 
                 $('#proyectoSelect').append(`
-                    <option>Selecciona...</option>
+                    <option disabled="">Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#proyectoSelect').append(`
@@ -167,7 +167,7 @@ function cargarBloque(idproyecto) {
                 <select class="form-control selector" id="bloqueSelect"></select>
                 `);
                 $('#bloqueSelect').append(`
-                    <option>Selecciona...</option>
+                    <option disabled="">Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#bloqueSelect').append(`
@@ -206,7 +206,7 @@ function cargarObjetivo(idbloque) {
                 $("#objetivoLoader").replaceWith(`<select class="form-control selector" id="objetivoSelect">
                 </select>`);
                 $('#objetivoSelect').append(`
-                    <option>Selecciona...</option>
+                    <option disabled="">Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#objetivoSelect').append(`
@@ -245,7 +245,7 @@ function cargarProducto(idobjetivo) {
                 $("#productoLoader").replaceWith(`<select class="form-control selector" id="productoSelect">
                 </select>`);
                 $('#productoSelect').append(`
-                    <option>Selecciona...</option>
+                    <option disabled="">Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#productoSelect').append(`

@@ -46,6 +46,7 @@ function searchItemQuery($con, $keyword){
 }
 
 function addBitacoraQuery($con, $titulo, $fecha, $descripcion, $producto_fk){
-    $sql = "INSERT INTO registro_actividad_semanal VALUES(nextval('bitacora_sec'), '$titulo', '$fecha', '$descripcion', $producto_fk)";
+    $sql = "INSERT INTO bitacora VALUES(nextval('bitacora_sec'), '$titulo', '$fecha', '$descripcion', $producto_fk)";
     return executeQuery($con, $sql);
+
 }

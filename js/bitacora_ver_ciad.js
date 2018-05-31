@@ -3,7 +3,8 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip()
     cargarProyecto();
     cargarBloque(1);
-  
+
+
     $('#logoutButton').click(function () {
         logout()
     });
@@ -108,7 +109,7 @@ function asignarEventoProducto() {
     </div>`);
 
         var selected = $('#productoSelect option:selected').attr("value")
-        cargarDetalleActividad(selected)
+        cargarBitacora(selected)
     });
 
 }
@@ -448,6 +449,31 @@ function logout() {
         }
     });
 
+}
 
+function cargarBitacora(idproducto) {
+    var data = {
+        fk_campo: "producto_fk",
+        fk_id: idproducto
+    }
+    $.ajax({
+        type: "get",
+        url: "server/getBitacora.php",
+        data: data,
+        dataType: "json",
+        success: function (response) {
+            response.forEach(element => {
+                $('#tablaBitacora').append(`
+                <tr>
+                    <th scope="row">${element.idbitacora}</th>
+                    <td>${element.titulo}</td>
+                    <td>${element.fecha}</td>
+                    <td>${element.descripcion}</td>
+                </tr>
+                `)
 
+            });
+
+        }
+    });
 }

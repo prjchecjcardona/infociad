@@ -16,16 +16,12 @@ $(document).ready(function () {
 
     //Ruta boton guardar otro registro
     $('#guardarOtroBoton').click(function () {
-        var descripcion = $('#descripcionArea').val()
-        var iddetalleactividad = $('.list-group-item-warning').attr("value")
-        addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro');
+        addBitacora('guardarOtro')
     });
 
     //Ruta boton guardar y salir
     $('#guardarSalirBoton').click(function () {
-        var descripcion = $('#descripcionArea').val()
-        var iddetalleactividad = $('.list-group-item-warning').attr("value")
-        addActividadSemanal(descripcion, iddetalleactividad, 'guardarSalir');
+        addBitacora('guardarSalir')
     });
 
     //Ruta boton cancelar
@@ -329,7 +325,6 @@ function buscar(busqueda) {
     }
 }
 
-
 //Funcion para parsear la fecha al formato posgresql
 function formatDate(date) {
     var d = new Date(date),
@@ -403,24 +398,6 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro) {
 
 }
 
-
-function cargarBitacora(idproducto) {
-    var data ={
-        fk_campo: "producto_fk",
-        fk_id: idproducto
-    }
-    $.ajax({
-        type: "get",
-        url: "server/getBitacora.php",
-        data: data,
-        dataType: "json",
-        success: function (response) {
-            
-        }
-    });
-}
-
-
 function habilitarCamposRegistro() {
     $('#tituloRegistro').removeAttr('disabled');
     $('#descripcionRegistro').removeAttr('disabled');
@@ -472,3 +449,46 @@ function logout() {
 
 }
 
+function addBitacora(guardarOtro) {
+
+    var fecha = formatDate(new Date())
+
+    var data = {
+        titulo: $('#tituloRegistro').val(),
+        fecha: fecha,
+        descripcion: $('#descripcionRegistro').val(),
+        producto_fk: $('#productoSelect option:selected').attr("value")
+    }
+
+    $.ajax({
+        type: "post",
+        url: "server/addBitacora.php",
+        data: data,
+        dataType: "json",
+        success: function (response) {
+            if (Array.isArray(response)) {
+                swal(
+                    'Guardado',
+                    'El Registro ha sido guardado',
+                    'success'
+                ).then(() => {
+                    if (guardarOtro == 'guardarOtro') {
+                        location.reload(true)
+                    } else {
+                        window.location.href = "dashboard_ciad.html"
+                    }
+                })
+            } else {
+                swal({
+                    title: '¡Ups!',
+                    text: 'Hubo un error en la inserción del registro',
+                    type: 'warning',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Entiendo',
+                    closeOnConfirm: false
+                }, );
+            }
+        }
+    });
+
+}
