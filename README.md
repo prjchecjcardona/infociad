@@ -57,6 +57,7 @@
 * descripcion (string): descripcion de la actividad
 * idusuario (integer) : id del usuaroi que hace el registro
 * detalleactividad (integer) : id del detalle actividad al que va enlazado el registro
+* [opt] evidencias (array of files) : Archivos que servirán de evidencia para el registro ingresado
 
 **@returns:**
 * array: 

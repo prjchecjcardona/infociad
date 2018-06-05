@@ -26,6 +26,32 @@ function actSemanalQuery($con, $fecha, $descripcion, $idusuario, $detalleactivid
     return executeQuery($con, $sql);
 }
 
+function getLastActividadSemanal($con){
+    $sql = "SELECT MAX(idregistro_actividad_semanal) FROM registro_actividad_semanal";
+    return executeQuery($con, $sql);
+}
+
+function getIdsEvidenciaName($con, $idRegistroActividad){
+    $sql = "SELECT bl.idbloque, 
+            ob.idobjetivo, 
+            pr.idproducto, 
+            da.iddetalle_actividad, 
+            (SELECT EXTRACT(YEAR FROM ras.fecha) FROM registro_actividad_semanal ras where ras.idregistro_actividad_semanal = $idRegistroActividad) as anio,
+            (SELECT EXTRACT(MONTH FROM ras.fecha) FROM registro_actividad_semanal ras where ras.idregistro_actividad_semanal = $idRegistroActividad) as mes
+            FROM registro_actividad_semanal ras
+            join detalle_actividad da on da.iddetalle_actividad = ras.detalle_actividad_fk
+            join producto pr on pr.idproducto = da.producto_fk
+            join objetivo ob on ob.idobjetivo = pr.objetivo_fk
+            join bloque bl on bl.idbloque = ob.bloque_fk
+            where ras.idregistro_actividad_semanal = $idRegistroActividad";
+    return executeQuery($con, $sql);
+}
+
+function addEvidenciaQuery($con, $id_archivo, $nombre_archivo, $id_folder, $idRegistroActividadSemanal){
+    $sql = "INSERT INTO evidencia_registro_actividad VALUES(nextval('evidencia_registro_actividad_sec'), '$id_archivo', '$nombre_archivo', '$id_folder', $idRegistroActividadSemanal)";
+    return executeQuery($con, $sql);
+}
+
 function getQuery($con, $table, $fatherTable, $id_fk)
 {
     if (!is_null($fatherTable)) {
@@ -49,8 +75,6 @@ function searchItemQuery($con, $keyword)
     (select iddetalle_actividad as id, nombre, 'detalle_actividad' as type from detalle_actividad where UPPER(nombre) like UPPER('%$keyword%'))";
     return executeQuery($con, $sql);
 }
-
-
 
 function getRegistroActividadSemanal($con, $anio, $mes, $proyecto, $bloque, $objetivo, $producto)
 {
