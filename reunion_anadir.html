@@ -11,11 +11,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css"
+    />
     <link rel="stylesheet" href="css/side-bar.css">
     <link rel="stylesheet" href="css/fade-in.css">
-    <link rel="stylesheet" href="css/bitacora.css">
+    <link rel="stylesheet" href="css/reunion.css">
 
-    <title>Ver Bitacora - CIAD</title>
+    <title>Añadir Bitacora - CIAD</title>
 </head>
 
 <body>
@@ -159,7 +161,7 @@
 
         <div class="contenido">
             <div class="columnaUno">
-                <h4>VER REGISTROS DE LA BITÁCORA</h4>
+                <h4>AÑADIR REUNIÓN</h4>
                 <div class="tituloSelect">
                     <span>PROYECTO</span>
                     <span>BLOQUE</span>
@@ -212,36 +214,104 @@
                     </select>
 
                 </div>
-                <small id="helpId" class="form-text text-muted">Selecciona las opciones indicadas hasta llegar a la selección de producto, asi se habilitará la tabla con
-                    los registros de la bitácora asociados al producto seleccionado.</small>
+                <small id="helpId" class="form-text text-muted">Selecciona las opciones correspondientes hasta llegar a la selección de producto, asi se habilitará los campos
+                    de añadir registro de la bitácora.</small>
 
 
                 <br>
                 <!-- <div class="list-group" id="listaDetalleActividad">
                 </div> -->
 
-                <table class="table table-sm table-bordered table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Título</th>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Descripción</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaBitacora">
-                    </tbody>
-                </table>
+                <div class="container">
+
+                    <div class="form-group">
+                        <label for="">Fecha de Invitación</label>
+                        <div class="input-group date" id="fechaInvitacion" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#fechaInvitacion" />
+                            <div class="input-group-append" data-target="#fechaInvitacion" data-toggle="datetimepicker">
+                                <div class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Convocado por</label>
+                        <input type="text" class="form-control" name="" id="convocadoPor" aria-describedby="helpId" placeholder="" disabled="">
+                        <small id="helpId" class="form-text text-muted">Ingresa el título del registro.</small>
+                    </div>
 
 
+
+                    <div class="form-group">
+                        <label for="">Fecha de la Reunión</label>
+                        <div class="input-group date" id="fechaReunion" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#fechaReunion" />
+                            <div class="input-group-append" data-target="#fechaReunion" data-toggle="datetimepicker">
+                                <div class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="">Hora de Inicio</label>
+                        <div class="input-group date" id="horaInicio" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#horaInicio" />
+                            <div class="input-group-append" data-target="#horaInicio" data-toggle="datetimepicker">
+                                <div class="input-group-text">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Hora de Finalización</label>
+                        <div class="input-group date" id="horaFin" data-target-input="nearest">
+                            <input type="text" class="form-control datetimepicker-input" data-target="#horaFin" />
+                            <div class="input-group-append" data-target="#horaFin" data-toggle="datetimepicker">
+                                <div class="input-group-text">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Lugar</label>
+                        <input type="text" class="form-control" name="" id="lugar" aria-describedby="helpId" placeholder="" disabled="">
+                        <small id="helpId" class="form-text text-muted">Ingresa el título del registro.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Descripción</label>
+                        <textarea class="form-control" name="" id="descripcionReunion" rows="5" disabled=""></textarea>
+                        <small id="helpId" class="form-text text-muted">Ingresa la descripción del registro.</small>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="checkboxfirmaCIAD">
+                        <label class="custom-control-label" for="checkboxfirmaCIAD">Firma CIAD</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="checkboxfirmaResponsable">
+                        <label class="custom-control-label" for="checkboxfirmaResponsable">Firma Responsable</label>
+                    </div>
+
+                </div>
 
                 <div class="agrupacionBotones">
-                    <button type="button" class="btn btn-warning marginBoton" id="cancelarBoton">
-                        <i class="fas fa-door-open"></i> Salir</button>
-                    <!-- <button type="button" class="btn btn-warning marginBoton" id="guardarOtroBoton">
+                    <button type="button" class="btn btn-danger marginBoton" id="cancelarBoton">
+                        <i class="fas fa-times"></i> Cancelar</button>
+                    <button type="button" class="btn btn-warning marginBoton" id="guardarOtroBoton">
                         <i class="fas fa-save"></i> Guardar y realizar otro registro</button>
                     <button type="button" class="btn btn-success marginBoton" id="guardarSalirBoton">
-                        <i class="fas fa-door-open"></i> Guardar y salir</button> -->
+                        <i class="fas fa-door-open"></i> Guardar y salir</button>
                 </div>
             </div>
 
@@ -298,6 +368,12 @@
                     </div>
                 </div> -->
 
+
+
+
+
+
+
         </div>
     </div>
 
@@ -308,10 +384,14 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="https://unpkg.com/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <script src="https://unpkg.com/promise-polyfill"></script>
 <script src="js/elements/file-input.js"></script>
 <script src="js/elements/side-bar.js"></script>
-<script src="js/bitacora_ver_ciad.js"></script>
+<script src="js/elements/datepicker.js"></script>
+<script src="js/reunion_anadir.js"></script>
+
 
 </html>
