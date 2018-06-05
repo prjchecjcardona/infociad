@@ -1,0 +1,14 @@
+{
+    "name": "ciad/infociadrestapi",
+    "description": "rest api for infociad system",
+    "type": "project",
+    "require": {
+        "google/apiclient": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "Juan Camilo Cardona",
+            "email": "prjchec.jcardona@umanizales.edu.co"
+        }
+    ]
+}

@@ -2,6 +2,7 @@
 
 require 'lib.php';
 
+
 $api = new InfoApi();
 
 if (isset($_POST['fecha'], $_POST['descripcion'], $_POST['idusuario'], $_POST['detalleactividad'])) {
