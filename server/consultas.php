@@ -52,38 +52,89 @@ function searchItemQuery($con, $keyword)
 
 
 
-function cargaDetalleActividad($con, $table, $fatherTable, $id_fk)
+function getRegistroActividadSemanal($con, $anio, $mes, $proyecto, $bloque, $objetivo, $producto)
 {
-    if (!is_null($fatherTable)) {
-        $sql = "SELECT * FROM $table WHERE $fatherTable = $id_fk";
-        $sql = "(select ras.idregistro_actividad_semanal, ras.fecha,
+    if (is_null($anio) && is_null($mes) && is_null($proyecto) && is_null($bloque) && is_null($objetivo) && is_null($producto)) {
+        $sql = "select ras.idregistro_actividad_semanal, ras.fecha,
         ras.descripcion as descripcion_actividad_semanal,
         da.nombre as nombre_detalle_actividad,
         pr.nombre as nombre_producto,
         ob.nombre as nombre_objetivo,
         bl.nombre as nombre_bloque,
         pro.nombre as nombre_proyecto
-    from registro_actividad_semanal ras
-    join detalle_actividad da on da.iddetalle_actividad = ras.detalle_actividad_fk
-    join producto pr on pr.idproducto = da.producto_fk
-    join objetivo ob on ob.idobjetivo = pr.objetivo_fk
-    join bloque bl on bl.idbloque = ob.bloque_fk
-    join proyecto pro on pro.idproyecto = bl.proyecto_fk)";
+        from registro_actividad_semanal ras
+        join detalle_actividad da on da.iddetalle_actividad = ras.detalle_actividad_fk
+        join producto pr on pr.idproducto = da.producto_fk
+        join objetivo ob on ob.idobjetivo = pr.objetivo_fk
+        join bloque bl on bl.idbloque = ob.bloque_fk
+        join proyecto pro on pro.idproyecto = bl.proyecto_fk";
     } else {
-        $sql = "SELECT * FROM $table";
-        $sql = "(select ras.idregistro_actividad_semanal, ras.fecha,
+        $sql = "select ras.idregistro_actividad_semanal, ras.fecha,
         ras.descripcion as descripcion_actividad_semanal,
         da.nombre as nombre_detalle_actividad,
         pr.nombre as nombre_producto,
         ob.nombre as nombre_objetivo,
         bl.nombre as nombre_bloque,
         pro.nombre as nombre_proyecto
-    from registro_actividad_semanal ras
-    join detalle_actividad da on da.iddetalle_actividad = ras.detalle_actividad_fk
-    join producto pr on pr.idproducto = da.producto_fk
-    join objetivo ob on ob.idobjetivo = pr.objetivo_fk
-    join bloque bl on bl.idbloque = ob.bloque_fk
-    join proyecto pro on pro.idproyecto = bl.proyecto_fk)";
+        from registro_actividad_semanal ras
+        join detalle_actividad da on da.iddetalle_actividad = ras.detalle_actividad_fk
+        join producto pr on pr.idproducto = da.producto_fk
+        join objetivo ob on ob.idobjetivo = pr.objetivo_fk
+        join bloque bl on bl.idbloque = ob.bloque_fk
+        join proyecto pro on pro.idproyecto = bl.proyecto_fk
+        WHERE ";
+        $first=true;
+        if(!is_null($anio)){
+            if($first){
+                $sql .= "(SELECT EXTRACT(YEAR FROM ras.fecha)) = $anio";
+                $first = false;
+            }else {
+                $sql .= " AND (SELECT EXTRACT(YEAR FROM ras.fecha)) = $anio";
+            }
+        }
+        if(!is_null($mes)){
+            if($first){
+                $sql .= "(SELECT EXTRACT(MONTH FROM ras.fecha)) = $mes";
+                $first = false;
+            }else {
+                $sql .= " AND (SELECT EXTRACT(MONTH FROM ras.fecha)) = $mes";
+            }
+        }
+        if(!is_null($proyecto)){
+            if($first){
+                $sql .= "pro.idproyecto = $proyecto";
+                $first = false;
+            }else {
+                $sql .= " AND pro.idproyecto = $proyecto";
+            }
+        }
+        if(!is_null($bloque)){
+            if($first){
+                $sql .= "bl.idbloque = $bloque";
+                $first = false;
+            }else {
+                $sql .= " AND bl.idbloque = $bloque";
+            }
+        }
+        if(!is_null($objetivo)){
+            if($first){
+                $sql .= "ob.idobjetivo = $objetivo";
+                $first = false;
+            }else {
+                $sql .= " AND ob.idobjetivo = $objetivo";
+            }
+        }
+        if(!is_null($producto)){
+            if($first){
+                $sql .= "pr.idproducto = $producto";
+                $first = false;
+            }else {
+                $sql .= " AND pr.idproducto = $producto";
+            }
+        }
+
+
+
     }
     return executeQuery($con, $sql);
 }

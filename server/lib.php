@@ -55,4 +55,8 @@ class InfoApi
         return addBitacoraQuery($this->con, $titulo, $fecha, $descripcion, $producto_fk);
     }
 
+    public function getRegistroSemanal($anio, $mes, $proyecto, $bloque, $objetivo, $producto){
+        return getRegistroActividadSemanal($this->con, $anio, $mes, $proyecto, $bloque, $objetivo, $producto);
+    }
+
 }

@@ -289,3 +289,37 @@
         ```    
         []
         ```
+
+## /getActividadesSemanales.php
+
+**@params: POST**
+* [opt] anio (double): año para filtrar
+* [opt] mes (double): mes para filtrar
+* [opt] idproyeto (double): id del proyecto para filtrar
+* [opt] idbloque (double): id del bloque para filtrar
+* [opt] idobjetivo (double): id del objetivo para filtrar
+* [opt] idproducto (double): id del producto para filtrar
+
+**@returns:**
+* array: 
+    * Object: {idregistro_actividad_semanal, fecha, descripcion_actividad_semanal, nombre_detalle_actividad, nombre_producto, nombre_objetivo, nombre_bloque, nombre_proyecto} : Cuando hay registros que concuerdan con los filtros
+        * Ejm: 
+        ```
+        [
+            {
+                "idregistro_actividad_semanal": 7,
+                "fecha": "2018-05-29",
+                "descripcion_actividad_semanal": "prueba",
+                "nombre_detalle_actividad": "1. Recepción de las llamadas del Contact Center Chec",
+                "nombre_producto": "2. Repositorio con 12 meses de audios convertidos a formato comercial y transcrito a texto",
+                "nombre_objetivo": "2. Construir un pipeline informático para la transcripción de voz a texto para las grabaciones suministradas por el contact center",
+                "nombre_bloque": "2. BODEGA DE DATOS: Armada de fuentes y almacenamiento de todas las fuentes - Construcción o diseño de bodega de datos",
+                "nombre_proyecto": "Voz del Cliente"
+            }
+        ]
+        ```
+    * Array : Cuando no hay registros
+        * Ejm: 
+        ```    
+        []
+        ```
