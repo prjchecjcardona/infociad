@@ -4,9 +4,9 @@ require 'lib.php';
 
 $api = new InfoApi();
 
-if(isset($_POST['fecha'], $_POST['descripcion'], $_POST['idusuario'], $_POST['detalleactividad'])){
+if (isset($_POST['fecha'], $_POST['descripcion'], $_POST['idusuario'], $_POST['detalleactividad'])) {
     $json = $api->addActividadSemanal($_POST['fecha'], $_POST['descripcion'], $_POST['idusuario'], $_POST['detalleactividad']);
-}else{
+} else {
     $json = "error, no se recibieron los datos correctos";
 }
 

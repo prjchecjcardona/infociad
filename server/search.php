@@ -4,11 +4,10 @@ require 'lib.php';
 
 $api = new InfoApi();
 
-if(isset($_GET['search'])){
+if (isset($_GET['search'])) {
     $json = $api->search($_GET['search']);
-}else {
+} else {
     $json = "Error en la recepción de los datos";
 }
-
 
 echo json_encode($json);

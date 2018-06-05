@@ -8,7 +8,8 @@ $(document).ready(function () {
         logout()
     });
 
-    $('#buttonSearch').click(function () {
+    $('#buttonSearch').click(function (e) {
+        e.preventDefault();
         var busqueda = $('#inputSearch').val()
         buscar(busqueda)
     });
@@ -315,6 +316,7 @@ function cargarDetalleActividad(idproducto) {
 }
 
 function buscar(busqueda) {
+    $('.resultadoBusqueda').empty()
     var data = {
         search: busqueda
     }

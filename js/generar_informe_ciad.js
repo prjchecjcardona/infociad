@@ -1,14 +1,15 @@
 $(document).ready(function () {
     validarSesion();
-    $('[data-toggle="tooltip"]').tooltip()
     cargarProyecto();
     cargarBloque(1);
+    $('[data-toggle="tooltip"]').tooltip()
 
     $('#logoutButton').click(function () {
         logout()
     });
 
-    $('#buttonSearch').click(function () {
+    $('#buttonSearch').click(function (e) {
+        e.preventDefault();
         var busqueda = $('#inputSearch').val()
         buscar(busqueda)
     });

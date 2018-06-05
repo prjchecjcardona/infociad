@@ -71,10 +71,27 @@
                     </div>
                     <ul class="list-sidebar bg-default">
                         <li>
-                            <a href="detalle_actividad.html">
-                                <i class="fas fa-boxes"></i>
-                                <span class="nav-label">Añadir Actividad</span>
+                            <a href="#" data-toggle="collapse" data-target="#actividad" class="collapsed active customCollapseUno">
+                                <div class="customCollpaseDos">
+                                    <i class="fas fa-boxes"></i>
+                                    <span class="nav-label">Actividades</span>
+                                </div>
+                                <span class="fa fa-chevron-left pull-right customCollapse"></span>
                             </a>
+                            <ul class="sub-menu collapse" id="actividad">
+                                <li>
+                                    <a href="detalle_actividad_ver.html">
+                                        <i class="far fa-eye"></i>
+                                        <span class="nav-label">Ver Actividad</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="detalle_actividad_anadir.html">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <span class="nav-label">Añadir Actividad</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#">
@@ -288,6 +305,6 @@
 <script src="https://unpkg.com/promise-polyfill"></script>
 <script src="js/elements/file-input.js"></script>
 <script src="js/elements/side-bar.js"></script>
-<script src="js/detalle_actividad.js"></script>
+<script src="js/detalle_actividad_anadir.js"></script>
 
 </html>

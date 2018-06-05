@@ -5,10 +5,10 @@ require 'lib.php';
 $api = new InfoApi();
 $idusr = $_POST['idusuario'];
 
-if(isset($idusr)){
-    if(isset($_SESSION['idusuario'])&& $_SESSION['idusuario']==$idusr){
+if (isset($idusr)) {
+    if (isset($_SESSION['idusuario']) && $_SESSION['idusuario'] == $idusr) {
         $json = true;
-    }else{
+    } else {
         session_destroy();
         $json = false;
     }

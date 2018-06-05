@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/side-bar.css">
     <link rel="stylesheet" href="css/fade-in.css">
-    <link rel="stylesheet" href="css/bitacora.css">
+    <link rel="stylesheet" href="css/detalle_actividad_ver.css">
 
-    <title>Ver Bitacora - CIAD</title>
+    <title>Ver Detalle Actividad - CIAD</title>
 </head>
 
 <body>
@@ -142,7 +142,7 @@
 
         <div class="contenido">
             <div class="columnaUno">
-                <h4>VER REGISTROS DE LA BITÁCORA</h4>
+                <h4>VER ACTIVIDAD SEMANAL</h4>
                 <div class="tituloSelect">
                     <span>PROYECTO</span>
                     <span>BLOQUE</span>
@@ -196,7 +196,39 @@
 
                 </div>
                 <small id="helpId" class="form-text text-muted">Selecciona las opciones indicadas hasta llegar a la selección de producto, asi se habilitará la tabla con
-                    los registros de la bitácora asociados al producto seleccionado.</small>
+                    las actividades asociadas al producto seleccionado.</small>
+                <br>
+                <div class="tituloSelectDate">
+                    <span>AÑO</span>
+                    <span>MES</span>
+
+                </div>
+                <div class="customSelectDate">
+
+
+                    <select class="form-control selectorDate" id="AnoSelect">
+                        <option value="" disabled="">Selecciona...</option>
+                        <option value="">2018</option>
+                    </select>
+
+                    <select class="form-control selectorDate" id="MesSelect">
+                        <option value="" disabled="">Selecciona...</option>
+                        <option value="">Enero</option>
+                        <option value="">Febrero</option>
+                        <option value="">Marzo</option>
+                        <option value="">Abril</option>
+                        <option value="">Mayo</option>
+                        <option value="">Junio</option>
+                        <option value="">Julio</option>
+                        <option value="">Agosto</option>
+                        <option value="">Septiembre</option>
+                        <option value="">Octubre</option>
+                        <option value="">Noviembre</option>
+                        <option value="">Diciembre</option>
+                    </select>
+                </div>
+                <small id="helpId" class="form-text text-muted"> A continuación selecciona el año y mes para filtrar las actividades asociadas al producto.</small>
+
 
 
                 <br>
@@ -295,6 +327,6 @@
 <script src="https://unpkg.com/promise-polyfill"></script>
 <script src="js/elements/file-input.js"></script>
 <script src="js/elements/side-bar.js"></script>
-<script src="js/bitacora_ver_ciad.js"></script>
+<script src="js/detalle_actividad_ver.js"></script>
 
 </html>

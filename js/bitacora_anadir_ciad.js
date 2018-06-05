@@ -1,15 +1,15 @@
 $(document).ready(function () {
-
-    $('[data-toggle="tooltip"]').tooltip()
+    validarSesion();
     cargarProyecto();
     cargarBloque(1);
-    validarSesion();
+    $('[data-toggle="tooltip"]').tooltip()
 
     $('#logoutButton').click(function () {
         logout()
     });
 
-    $('#buttonSearch').click(function () {
+    $('#buttonSearch').click(function (e) {
+        e.preventDefault();
         var busqueda = $('#inputSearch').val()
         buscar(busqueda)
     });
@@ -84,9 +84,12 @@ function asignarEventoObjetivo() {
 }
 
 function asignarEventoProducto() {
-    $('#productoSelect').click(function () {
-        habilitarCamposRegistro();
-    });
+    var seleccion = $('#productoSelect option:selected').attr("value")
+    habilitarCamposRegistro(seleccion)
+
+    /*    $('#productoSelect').click(function () {
+           habilitarCamposRegistro();
+       }); */
     $('#productoSelect').change(function () {
         $('#listaDetalleActividad').empty()
         $("#listaDetalleActividad").replaceWith(`<div class="sk-circle" id="detalleActividadLoader">
