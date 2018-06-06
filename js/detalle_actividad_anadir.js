@@ -18,11 +18,12 @@ $(document).ready(function () {
     $('#guardarOtroBoton').click(function () {
         var descripcion = $('#descripcionArea').val()
         var iddetalleactividad = $('.list-group-item-warning').attr("value")
+        var archivo = $('#subirArchivo').prop('files')[0]
         if ($('#checkboxBitacora').prop('checked')) {
-            addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro', true);
+            addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro', true, archivo);
 
         } else {
-            addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro', false);
+            addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro', false, archivo);
 
         }
     });
@@ -354,17 +355,26 @@ function formatDate(date) {
     return [year, month, day].join('-');
 }
 
-function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro, bitacora) {
+function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro, bitacora, archivo) {
 
     var fecha = formatDate(new Date())
+    var idusuario = localStorage.getItem('idusuario')
+    var formData = new FormData();
+    /* formData.append("fecha", fecha);
+    formData.append("descripcion", descripcion);
+    formData.append("idusuario", idusuario);
+    formData.append("detalleactividad", iddetalleactividad);
+    formData.append("evidencias", archivo); */
 
+       var data = {
+           fecha: fecha,
+           descripcion: descripcion,
+           idusuario: idusuario,
+           detalleactividad: iddetalleactividad,
+       }
 
-    var data = {
-        fecha: fecha,
-        descripcion: descripcion,
-        idusuario: 1,
-        detalleactividad: iddetalleactividad
-    }
+       formData.append("evidencias", archivo)
+
     swal({
         title: '¿Estás seguro de guardar?',
         text: "",
@@ -380,37 +390,49 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro, bitac
             if (bitacora) {
                 addBitacora();
             }
-
             $.ajax({
                 type: "post",
                 url: "server/addActividadSemanal.php",
                 data: data,
                 dataType: "json",
                 success: function (response) {
-                    if (Array.isArray(response)) {
-                        swal(
-                            'Guardado',
-                            'El Registro ha sido guardado',
-                            'success'
-                        ).then(() => {
-                            if (guardarOtro == 'guardarOtro') {
-                                location.reload(true)
+
+                    $.ajax({
+                        type: "method",
+                        url: "url",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        dataType: "dataType",
+                        success: function (response) {
+                            if (Array.isArray(response)) {
+                                swal(
+                                    'Guardado',
+                                    'El Registro ha sido guardado',
+                                    'success'
+                                ).then(() => {
+                                    if (guardarOtro == 'guardarOtro') {
+                                        location.reload(true)
+                                    } else {
+                                        window.location.href = "dashboard_ciad.html"
+                                    }
+                                })
+
                             } else {
-                                window.location.href = "dashboard_ciad.html"
+                                swal({
+                                    title: '¡Ups!',
+                                    text: 'Hubo un error en la inserción del registro',
+                                    type: 'warning',
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: 'Entiendo',
+                                    closeOnConfirm: false
+                                }, );
+
                             }
-                        })
+                        }
+                    });
 
-                    } else {
-                        swal({
-                            title: '¡Ups!',
-                            text: 'Hubo un error en la inserción del registro',
-                            type: 'warning',
-                            confirmButtonColor: '#3085d6',
-                            confirmButtonText: 'Entiendo',
-                            closeOnConfirm: false
-                        }, );
 
-                    }
                 }
             });
         }

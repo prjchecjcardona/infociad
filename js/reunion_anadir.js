@@ -402,8 +402,13 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro) {
 }
 
 function habilitarCamposRegistro() {
+    $('#fechaDeInvitacion').removeAttr('disabled');
     $('#convocadoPor').removeAttr('disabled');
-    $('#descripcionRegistro').removeAttr('disabled');
+    $('#fechaDeReunion').removeAttr('disabled');
+    $('#horaDeInicio').removeAttr('disabled');
+    $('#horaDeFin').removeAttr('disabled');
+    $('#lugar').removeAttr('disabled');
+    $('#descripcionReunion').removeAttr('disabled');
 
 }
 
