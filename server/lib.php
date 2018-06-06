@@ -2,6 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 require 'consultas.php';
+include 'upload_GoogleDrive.php';
+
 class InfoApi
 {
     private $con;
@@ -31,9 +33,42 @@ class InfoApi
         return logQuery($this->con, $usr, $pwd);
     }
 
-    public function addActividadSemanal($fecha, $descripcion, $idusuario, $detalleactividad)
+    public function addActividadSemanal($fecha, $descripcion, $idusuario, $detalleactividad, $evidencias)
     {
-        return actSemanalQuery($this->con, $fecha, $descripcion, $idusuario, $detalleactividad);
+        if(is_null($evidencias)){
+            return actSemanalQuery($this->con, $fecha, $descripcion, $idusuario, $detalleactividad);
+        }else{
+            $idActividadSemanal = getLastActividadSemanal($this->con);
+            $filesUpdated = $this->generateFileName($idActividadSemanal[0]['max'], $evidencias);
+            $results = array();
+            foreach ($filesUpdated as $file) {
+                array_push($results, $this->addFileActividadSemanal($file, $idActividadSemanal[0]['max']));
+            }
+            return array();
+        }
+    }
+
+    public function addFileActividadSemanal($file, $idActividadSemanal){
+        $drive = new GoogleDrive();
+        $folderId = '1lxaN1usq-LuG8gjRYj7AFXz6xDwL9A2M';
+        $fileId = $drive->processFile($file['file'], $folderId, $file['newName']);
+        return addEvidenciaQuery($this->con, $fileId, $file['newName'], $folderId, $idActividadSemanal);
+    }
+
+    public function generateFileName($idActividadSemanal, $evidencias){
+        $idsEvidencia = getIdsEvidenciaName($this->con, $idActividadSemanal);
+        $filesAndNames = array();
+        $i = 0;
+        foreach ($evidencias as $file) {
+            $tmp = explode('.', $file['name']);
+            $extension = end($tmp);
+            $i++;
+            array_push($filesAndNames, array(
+                'file'=>$file,
+                'newName'=> "B".$idsEvidencia[0]['idbloque']."-O".$idsEvidencia[0]['idobjetivo']."-P".$idsEvidencia[0]['idproducto']."-A".$idsEvidencia[0]['iddetalle_actividad']."-".$idsEvidencia[0]['anio']."-".$idsEvidencia[0]['mes']."-E".$i.".".$extension
+            ));
+        }
+        return $filesAndNames;
     }
 
     public function get($table, $fatherTable, $id_fk)
@@ -58,5 +93,7 @@ class InfoApi
     public function getRegistroSemanal($anio, $mes, $proyecto, $bloque, $objetivo, $producto){
         return getRegistroActividadSemanal($this->con, $anio, $mes, $proyecto, $bloque, $objetivo, $producto);
     }
+
+    
 
 }

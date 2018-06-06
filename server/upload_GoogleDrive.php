@@ -65,22 +65,27 @@ class GoogleDrive
     }
     return str_replace('~', realpath($homeDirectory), $path);
   }
-  public function upload($path, $fileName){
+  public function upload($path, $folderId, $newFileName){
     $client = $this->getClient();
     $service = new Google_Service_Drive($client);
-    $folderId = '1lxaN1usq-LuG8gjRYj7AFXz6xDwL9A2M';
     $fileMetadata = new Google_Service_Drive_DriveFile(array(
-      'name' => 'upload_'.$fileName,
+      'name' => $newFileName,
       'parents' => array($folderId)
     ));
-    $content = file_get_contents($path. $fileName);
+    $content = file_get_contents($path. $newFileName);
     $file = $service->files->create($fileMetadata, array(
       'data'       => $content,
-      'mimeType'   => mime_content_type($path. $fileName), //'image/jpeg',
+      'mimeType'   => mime_content_type($path. $newFileName), //'image/jpeg',
       'uploadType' => 'multipart',
       'fields'     => 'id')
     );
     return $file;
   }
 
+  public function processFile($file, $folderId, $newFileName){
+    move_uploaded_file($file['tmp_name'], 'files/'.$newFileName);
+    $uploadedFile = $this->upload('files/', $folderId, $newFileName);
+    unlink('files/'.$newFileName);
+    return $uploadedFile->id;
+  }
 }
