@@ -35,9 +35,8 @@ class InfoApi
 
     public function addActividadSemanal($fecha, $descripcion, $idusuario, $detalleactividad, $evidencias)
     {
-        //$dataInsert = actSemanalQuery($this->con, $fecha, $descripcion, $idusuario, $detalleactividad);
         if(is_null($evidencias)){
-            return $dataInsert;
+            return actSemanalQuery($this->con, $fecha, $descripcion, $idusuario, $detalleactividad);
         }else{
             $idActividadSemanal = getLastActividadSemanal($this->con);
             $filesUpdated = $this->generateFileName($idActividadSemanal[0]['max'], $evidencias);

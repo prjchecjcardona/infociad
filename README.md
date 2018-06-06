@@ -57,7 +57,6 @@
 * descripcion (string): descripcion de la actividad
 * idusuario (integer) : id del usuaroi que hace el registro
 * detalleactividad (integer) : id del detalle actividad al que va enlazado el registro
-* [opt] evidencias (array of files) : Archivos que servirán de evidencia para el registro ingresado
 
 **@returns:**
 * array: 
@@ -71,6 +70,26 @@
         ```
         "ERROR:  invalid input syntax for type date: \"hola\"\nLINE 1:"
         ```
+
+
+## /addEvidenciasSemanal.php
+
+**@params: POST**
+* evidencias (array of files) : Archivos que servirán de evidencia para el registro ingresado
+
+**@returns:**
+* array: 
+    * Array : Cuando la inserción es válida retorna un arreglo vacío
+        * Ejm: 
+        ```    
+        []
+        ```
+    * String: Cuando ocurre algún error en la inserción retorna el detalle del error como string.
+        * Ejm: 
+        ```
+        "ERROR:  invalid input syntax for type date: \"hola\"\nLINE 1:"
+        ```
+
 
 
 
