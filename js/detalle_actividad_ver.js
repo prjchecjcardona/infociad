@@ -2,6 +2,7 @@ $(document).ready(function () {
     validarSesion();
     cargarProyecto();
     cargarBloque(1);
+    cargarActividadSemanal();
     $('[data-toggle="tooltip"]').tooltip()
 
     $('#logoutButton').click(function () {
@@ -33,6 +34,36 @@ $(document).ready(function () {
         window.location.href = "dashboard_ciad.html"
     });
 
+
+    $('#proyectoSelect').change(function () {
+        $('#tablaActividadSemanal').empty();
+        cargarActividadSemanal()
+    })
+
+    $('#bloqueSelect').change(function () {
+        $('#tablaActividadSemanal').empty();
+        cargarActividadSemanal()
+    })
+
+    $('#objetivoSelect').change(function () {
+        $('#tablaActividadSemanal').empty();
+        cargarActividadSemanal()
+    })
+
+    $('#productoSelect').change(function () {
+        $('#tablaActividadSemanal').empty();
+        cargarActividadSemanal()
+    })
+
+    $('#anoSelect').change(function () {
+        $('#tablaActividadSemanal').empty();
+        cargarActividadSemanal()
+    })
+
+    $('#mesSelect').change(function () {
+        $('#tablaActividadSemanal').empty();
+        cargarActividadSemanal()
+    })
 });
 
 function asignarEventoBloque() {
@@ -130,7 +161,7 @@ function cargarProyecto() {
     `);
 
                 $('#proyectoSelect').append(`
-                    <option>Selecciona...</option>
+                    <option value="-1">Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#proyectoSelect').append(`
@@ -171,7 +202,7 @@ function cargarBloque(idproyecto) {
                 <select class="form-control selector" id="bloqueSelect"></select>
                 `);
                 $('#bloqueSelect').append(`
-                    <option>Selecciona...</option>
+                    <option value="-1">Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#bloqueSelect').append(`
@@ -210,7 +241,7 @@ function cargarObjetivo(idbloque) {
                 $("#objetivoLoader").replaceWith(`<select class="form-control selector" id="objetivoSelect">
                 </select>`);
                 $('#objetivoSelect').append(`
-                    <option>Selecciona...</option>
+                    <option value="-1">Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#objetivoSelect').append(`
@@ -249,7 +280,7 @@ function cargarProducto(idobjetivo) {
                 $("#productoLoader").replaceWith(`<select class="form-control selector" id="productoSelect">
                 </select>`);
                 $('#productoSelect').append(`
-                    <option>Selecciona...</option>
+                    <option value="-1">Selecciona...</option>
                     `)
                 response.forEach(element => {
                     $('#productoSelect').append(`
@@ -315,7 +346,7 @@ function buscar(busqueda) {
             dataType: "json",
             success: function (response) {
                 if (response.length == 0) {
-                    swal("Ingresa información en la barra de búsqueda")
+                    swal("No se encuentran resultados asociados a la búsqueda")
                 } else {
                     response.forEach(element => {
                         $('.resultadoBusqueda').append(`
@@ -451,7 +482,7 @@ function logout() {
 
 }
 
-function cargarBitacora(idproducto) {
+/* function cargarBitacora(idproducto) {
     var data = {
         fk_campo: "producto_fk",
         fk_id: idproducto
@@ -469,6 +500,43 @@ function cargarBitacora(idproducto) {
                     <td>${element.titulo}</td>
                     <td>${element.fecha}</td>
                     <td>${element.descripcion}</td>
+                </tr>
+                `)
+
+            });
+
+        }
+    });
+} */
+
+
+function cargarActividadSemanal() {
+
+    var data = {
+        anio: $('#anoSelect option:selected').attr("value"),
+        mes: $('#mesSelect option:selected').attr("value"),
+        idproyecto: $('#proyectoSelect option:selected').attr("value"),
+        idbloque: $('#bloqueSelect option:selected').attr("value"),
+        idobjetivo: $('#objetivoSelect option:selected').attr("value"),
+        idproducto: $('#productoSelect option:selected').attr("value")
+    }
+
+    $.ajax({
+        type: "post",
+        url: "server/getActividadesSemanales.php",
+        data: data,
+        dataType: "json",
+        success: function (response) {
+
+            response.forEach(element => {
+                $('#tablaActividadSemanal').append(`
+                <tr>
+                    <td>${element.nombre_bloque}</td>
+                    <td>${element.nombre_objetivo}</td>
+                    <td>${element.nombre_producto}</td>
+                    <td>${element.fecha}</td>
+                    <td>${element.nombre_detalle_actividad}</td>
+                    <td>${element.descripcion_actividad_semanal}</td>
                 </tr>
                 `)
 

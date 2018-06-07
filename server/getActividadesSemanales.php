@@ -4,39 +4,39 @@ require 'lib.php';
 
 $api = new InfoApi();
 
-if (isset($_POST['anio'])) {
+if (isset($_POST['anio']) && $_POST['anio'] != -1) {
     $anio = $_POST['anio'];
-}else {
+} else {
     $anio = null;
 }
 
-if (isset($_POST['mes'])) {
+if (isset($_POST['mes']) && $_POST['mes'] != -1) {
     $mes = $_POST['mes'];
-}else {
+} else {
     $mes = null;
 }
 
-if (isset($_POST['idproyecto'])) {
+if (isset($_POST['idproyecto']) && $_POST['idproyecto'] != -1) {
     $proyecto = $_POST['idproyecto'];
-}else {
+} else {
     $proyecto = null;
 }
 
-if (isset($_POST['idbloque'])) {
+if (isset($_POST['idbloque']) && $_POST['idbloque'] != -1) {
     $bloque = $_POST['idbloque'];
-}else {
+} else {
     $bloque = null;
 }
 
-if (isset($_POST['idobjetivo'])) {
+if (isset($_POST['idobjetivo']) && $_POST['idobjetivo'] != -1) {
     $objetivo = $_POST['idobjetivo'];
-}else {
+} else {
     $objetivo = null;
 }
 
-if (isset($_POST['idproducto'])) {
+if (isset($_POST['idproducto']) && $_POST['idproducto'] != -1) {
     $producto = $_POST['idproducto'];
-}else {
+} else {
     $producto = null;
 }
 

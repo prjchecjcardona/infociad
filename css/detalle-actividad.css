@@ -139,7 +139,7 @@ body {
     justify-content: space-around
 }
 
-.form-group{
+.form-group {
     margin-bottom: 0.5em;
 }
 
@@ -316,4 +316,12 @@ body {
         -webkit-transform: scale(1);
         transform: scale(1);
     }
+}
+
+.cargaLoader {
+    width: 100%;
+    height: 640px;
+    background: #13131354;
+    position: absolute;
+    display: none;
 }

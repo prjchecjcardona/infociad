@@ -312,7 +312,7 @@ function buscar(busqueda) {
             dataType: "json",
             success: function (response) {
                 if (response.length == 0) {
-                    swal("Ingresa información en la barra de búsqueda")
+                    swal("No se encuentran resultados asociados a la búsqueda")
                 } else {
                     response.forEach(element => {
                         $('.resultadoBusqueda').append(`

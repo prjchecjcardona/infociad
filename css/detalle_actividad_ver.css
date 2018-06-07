@@ -149,6 +149,16 @@ body {
     width: 50%;
 }
 
+#tablaActividadSemanal {
+    font-size: 12px;
+}
+
+.tablaActividadSemanal{
+    max-height: 240px;
+    overflow: auto
+}
+
+
 .sk-circle {
     margin-left: 11%;
     margin-right: 11%;

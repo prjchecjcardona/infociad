@@ -5,6 +5,7 @@ require 'lib.php';
 
 $api = new InfoApi();
 
+
 if(isset($_FILES['evidencias'])){
     $filesArray = reArrayFiles($_FILES['evidencias']);
     $json = $api->addActividadSemanal(null, null, null, null, $filesArray);

@@ -13,12 +13,24 @@
     <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/side-bar.css">
     <link rel="stylesheet" href="css/fade-in.css">
+    <link rel="stylesheet" href="css/loader-3.css">
     <link rel="stylesheet" href="css/detalle-actividad.css">
+
 
     <title>Detalle Actividad - CIAD</title>
 </head>
 
 <body>
+    <div class="cargaLoader">
+        <div class="loader-wrapper" id="loader-3">
+            <div id="loader"></div>
+            <div id="loader"></div>
+            <div id="loader"></div>
+            <div id="loader"></div>
+            <div id="loader"></div>
+        </div>
+    </div>
+    <div id="loader"></div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="agrupacionLogo">
             <a class="navbar-brand" href="dashboard_ciad.html">
@@ -56,6 +68,8 @@
     </nav>
 
     <div class="main">
+
+
         <div class="barraLateral">
             <aside>
                 <div class="sidebar left ">
@@ -155,7 +169,7 @@
                 </div>
             </aside>
         </div>
-        
+
         <div class="contenido">
             <div class="boxSelect">
 
@@ -284,7 +298,9 @@
 
 
                     <label for="">Añadir Evidencias</label>
-                    <input type="file" multiple class="btn btn-primary" name="evidencias[]" id="subirArchivo">
+                    <form id="subirArchivos">
+                        <input type="file" multiple class="btn btn-primary" name="evidencias[]" id="subirArchivo">
+                    </form>
                     <br>
                 </div>
 

@@ -223,50 +223,51 @@
                 <div class="customSelectDate">
 
 
-                    <select class="form-control selectorDate" id="AnoSelect">
-                        <option value="" disabled="">Selecciona...</option>
-                        <option value="">2018</option>
+                    <select class="form-control selectorDate" id="anoSelect">
+                        <option value="-1">Selecciona...</option>
+                        <option value="2018">2018</option>
                     </select>
 
-                    <select class="form-control selectorDate" id="MesSelect">
-                        <option value="" disabled="">Selecciona...</option>
-                        <option value="">Enero</option>
-                        <option value="">Febrero</option>
-                        <option value="">Marzo</option>
-                        <option value="">Abril</option>
-                        <option value="">Mayo</option>
-                        <option value="">Junio</option>
-                        <option value="">Julio</option>
-                        <option value="">Agosto</option>
-                        <option value="">Septiembre</option>
-                        <option value="">Octubre</option>
-                        <option value="">Noviembre</option>
-                        <option value="">Diciembre</option>
+                    <select class="form-control selectorDate" id="mesSelect">
+                        <option value="-1">Selecciona...</option>
+                        <option value="1">Enero</option>
+                        <option value="2">Febrero</option>
+                        <option value="3">Marzo</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Mayo</option>
+                        <option value="6">Junio</option>
+                        <option value="7">Julio</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
                     </select>
                 </div>
                 <small id="helpId" class="form-text text-muted"> A continuación selecciona el año y mes para filtrar las actividades asociadas al producto.</small>
-
-
-
                 <br>
                 <!-- <div class="list-group" id="listaDetalleActividad">
                 </div> -->
 
-                <table class="table table-sm table-bordered table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Detalle Actividad</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Evidencia</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaBitacora">
-                    </tbody>
-                </table>
 
-
-
+                <div class="tablaActividadSemanal">
+                    <table class="table table-sm table-bordered table-hover table-fixed">
+                        <thead class="thead-dark">
+                            <tr>
+                                <!-- <th scope="col">Proyecto</th> -->
+                                <th scope="col">Bloque</th> 
+                                <th scope="col">Objetivo</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Detalle Actividad</th>
+                                <th scope="col">Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaActividadSemanal">
+                        </tbody>
+                    </table>
+                </div>
+                <br>
                 <div class="agrupacionBotones">
                     <button type="button" class="btn btn-warning marginBoton" id="cancelarBoton">
                         <i class="fas fa-door-open"></i> Salir</button>
@@ -342,7 +343,6 @@
     crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <script src="https://unpkg.com/promise-polyfill"></script>
-<script src="js/elements/file-input.js"></script>
 <script src="js/elements/side-bar.js"></script>
 <script src="js/detalle_actividad_ver.js"></script>
 

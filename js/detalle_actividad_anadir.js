@@ -18,7 +18,7 @@ $(document).ready(function () {
     $('#guardarOtroBoton').click(function () {
         var descripcion = $('#descripcionArea').val()
         var iddetalleactividad = $('.list-group-item-warning').attr("value")
-        var archivo = $('#subirArchivo').prop('files')[0]
+        var archivo = document.getElementById("subirArchivo").files
         if ($('#checkboxBitacora').prop('checked')) {
             addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro', true, archivo);
 
@@ -32,7 +32,14 @@ $(document).ready(function () {
     $('#guardarSalirBoton').click(function () {
         var descripcion = $('#descripcionArea').val()
         var iddetalleactividad = $('.list-group-item-warning').attr("value")
-        addActividadSemanal(descripcion, iddetalleactividad, 'guardarSalir');
+        var archivo = document.getElementById("subirArchivo").files
+        if ($('#checkboxBitacora').prop('checked')) {
+            addActividadSemanal(descripcion, iddetalleactividad, 'guardarSalir', true, archivo);
+
+        } else {
+            addActividadSemanal(descripcion, iddetalleactividad, 'guardarSalir', false, archivo);
+
+        }
     });
 
     //Ruta boton cancelar
@@ -280,6 +287,7 @@ function cargarDetalleActividad(idproducto) {
         fk_campo: "producto_fk",
         fk_id: idproducto
     }
+
     $.ajax({
         type: "get",
         url: "server/getDetalleActividad.php",
@@ -329,7 +337,7 @@ function buscar(busqueda) {
             dataType: "json",
             success: function (response) {
                 if (response.length == 0) {
-                    swal("Ingresa información en la barra de búsqueda")
+                    swal("No se encuentran resultados asociados a la búsqueda")
                 } else {
                     response.forEach(element => {
                         $('.resultadoBusqueda').append(`
@@ -359,21 +367,20 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro, bitac
 
     var fecha = formatDate(new Date())
     var idusuario = localStorage.getItem('idusuario')
-    var formData = new FormData();
+    var formData = new FormData(document.getElementById("subirArchivos"));
     /* formData.append("fecha", fecha);
     formData.append("descripcion", descripcion);
     formData.append("idusuario", idusuario);
     formData.append("detalleactividad", iddetalleactividad);
     formData.append("evidencias", archivo); */
 
-       var data = {
-           fecha: fecha,
-           descripcion: descripcion,
-           idusuario: idusuario,
-           detalleactividad: iddetalleactividad,
-       }
+    var data = {
+        fecha: fecha,
+        descripcion: descripcion,
+        idusuario: idusuario,
+        detalleactividad: iddetalleactividad,
+    }
 
-       formData.append("evidencias", archivo)
 
     swal({
         title: '¿Estás seguro de guardar?',
@@ -386,6 +393,8 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro, bitac
         confirmButtonText: 'Si, Guardar'
     }).then((result) => {
         if (result.value) {
+            $('#listaDetalleActividad').hide();
+            $('.cargaLoader').show();
 
             if (bitacora) {
                 addBitacora();
@@ -398,14 +407,15 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro, bitac
                 success: function (response) {
 
                     $.ajax({
-                        type: "method",
-                        url: "url",
+                        type: "post",
+                        url: "server/addEvidenciasSemanal.php",
                         data: formData,
                         processData: false,
+                        dataType: "json",
                         contentType: false,
-                        dataType: "dataType",
                         success: function (response) {
                             if (Array.isArray(response)) {
+                                $('.cargaLoader').hide();
                                 swal(
                                     'Guardado',
                                     'El Registro ha sido guardado',
