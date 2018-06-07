@@ -6,5 +6,7 @@
             "email": "prjchec.dcardona@umanizales.edu.co"
         }
     ],
-    "require": {}
+    "require": {
+        "google/apiclient": "^2.0"
+    }
 }
