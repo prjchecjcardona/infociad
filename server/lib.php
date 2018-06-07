@@ -16,16 +16,16 @@ class InfoApi
     public function connectDB()
     {
         //DB DATA PRODUCCIÓN
-        /* $database = "d7jmsqb0pb9n11";
+        $database = "d7jmsqb0pb9n11";
         $uid = "ymuglgckigeyxm";
         $pwd = "8a86f637e663ed9f778e1ec74e3da85d6f6aec7ce57dbbd2cf3c5c82afa3380a";
-        $host = "ec2-184-73-201-79.compute-1.amazonaws.com"; */
+        $host = "ec2-184-73-201-79.compute-1.amazonaws.com";
 
         //DB DATA DEVEPLOPER
-        $database = "d5sdlsrh69tg7v";
+        /* $database = "d5sdlsrh69tg7v";
         $uid = "yockkrzyjzfmtt";
         $pwd = "e0c3afe7326d5f8f377730b3e166e2456363333d972a44a2b7ad424c5be019ac";
-        $host = "ec2-54-235-119-0.compute-1.amazonaws.com";
+        $host = "ec2-54-235-119-0.compute-1.amazonaws.com"; */
 
         //establecer la conexión
         $this->con = new PDO("pgsql:host=$host;port=5432;dbname=$database;user=$uid;password=$pwd");
