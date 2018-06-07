@@ -1,0 +1,10 @@
+{
+    "name": "sala/info_ciad",
+    "authors": [
+        {
+            "name": "Daniel Cardona",
+            "email": "prjchec.dcardona@umanizales.edu.co"
+        }
+    ],
+    "require": {}
+}
