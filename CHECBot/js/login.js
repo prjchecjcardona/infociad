@@ -33,19 +33,9 @@ $(document).ready(function () {
                         closeOnConfirm: false
                     }, );
                 } else {
-                    if (response[0].tipo_usuario == "ciad") {
-                        var nombre = response[0].nombre
-                        localStorage.setItem('nombre', nombre)
-                        var idusuario = response[0].idusuario
-                        localStorage.setItem('idusuario', idusuario)
-                        window.location.href = "dashboard_ciad.html"
-                    } else {
-                        var idusuario = response[0].nombre
-                        localStorage.setItem('nombre', nombre)
-                        var idusuario = response[0].idusuario
-                        localStorage.setItem('idusuario', idusuario)
-                        window.location.href = "dashboard_chec.html"
-                    }
+                    var idusuario = response[0].idusuario
+                    localStorage.setItem('idusuario', idusuario)
+                    window.location.href = "bot.html"
                 }
             }
         });

@@ -1,11 +1,11 @@
 $(document).ready(function () {
   validarSesion();
-  cargarNombre();
+  $('.tooltipped').tooltip();
+  $('.modal').modal();
+
   $('#logoutButton').click(function () {
     logout()
   });
-
-
 
   $('[data-toggle="tooltip"]').tooltip()
 });
@@ -52,13 +52,6 @@ function logout() {
     }
   });
 
-}
 
-function cargarNombre() {
-
-  var nombre = localStorage.getItem('nombre')
-  console.log(nombre);
-  
-$('#cargarNombre').html(`<p>${nombre}</p>`);
 
 }

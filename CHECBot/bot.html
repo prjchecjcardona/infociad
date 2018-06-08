@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CHATBOT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/textAnimated.scss">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="contenido">
+        <div class="titulo">
+            <h2>BIENVENIDO, Soy CHECbot</h2>
+            <div class="enunciado">
+                <span>Inicia una conversación saludandome</span>
+            </div>
+            <div class="imagenCurva">
+                <img class="arrow" src="img/Curved_Arrow.png" alt="">
+            </div>
+        </div>
+
+        <div class="contenedorChat">
+            <div id="text">
+                <!-- content generated with JS -->
+            </div>
+
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img src="" alt="" class="activator" />
+                </div>
+                <div class="card-content">
+                    <iframe class="chat" src='https://webchat.botframework.com/embed/CHEC_Indisp?s=Ns3EM6qleDw.cwA.89Q.ntBN1zl-ZA_9nKPNN_qMJtMcvi8ioZodcbOtNBDXmc8'></iframe>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="logos">
+            <div class="botonCerrarSesion">
+
+                <a id="logoutButton" class="btn-floating btn-large waves-effect waves-light blue">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+            <div class="contenedorLogos">
+                <img class="logoCiad" src="img/LogoCiad_Abril02-01.png" alt="">
+                <img class="logoUmChec" src="img/LogoUMChec-01.png" alt="">
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Modal Trigger -->
+    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
+
+    <!-- Modal Structure -->
+    <!-- <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Bienvenido a CHATBOT CHEC</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ok</a>
+        </div>
+    </div> -->
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="https://unpkg.com/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script src="https://unpkg.com/promise-polyfill"></script>
+<script src="js/main.js"></script>
+
+
+</html>
