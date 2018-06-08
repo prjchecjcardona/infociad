@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  cargarNombre();
   validarSesion();
 
   $('#logoutButton').click(function () {
@@ -51,5 +52,12 @@ function logout() {
   });
 
 
+
+}
+
+function cargarNombre() {
+
+  var nombre = localStorage.getItem('nombre');
+  $('#cargarNombre').html(nombre);
 
 }

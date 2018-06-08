@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  validarSesion();
   cargarNombre();
+  validarSesion();
   $('#logoutButton').click(function () {
     logout()
   });
@@ -56,9 +56,7 @@ function logout() {
 
 function cargarNombre() {
 
-  var nombre = localStorage.getItem('nombre')
-  console.log(nombre);
-  
-$('#cargarNombre').html(`<p>${nombre}</p>`);
+  var nombre = localStorage.getItem('nombre');
+  $('#cargarNombre').html(nombre);
 
 }

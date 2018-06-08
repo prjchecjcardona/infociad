@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    cargarNombre();
     validarSesion();
     cargarProyecto();
     cargarBloque(1);
@@ -448,6 +449,13 @@ function logout() {
             })
         }
     });
+
+}
+
+function cargarNombre() {
+
+    var nombre = localStorage.getItem('nombre');
+    $('#cargarNombre').html(nombre);
 
 }
 
