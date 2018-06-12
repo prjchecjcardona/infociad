@@ -20,6 +20,7 @@
 
 .arrow {
     width: 40%;
+    height: 100%;
 }
 
 .logos {
@@ -44,9 +45,11 @@
     justify-content: space-between;
 }
 
+
 .botonCerrarSesion {
     display: flex;
     justify-content: end;
+    -webkit-justify-content: flex-end;
     margin-top: 10px;
     margin-right: 5px;
 }
@@ -62,6 +65,7 @@
 .imagenCurva {
     display: flex;
     justify-content: right;
+    -webkit-justify-content: flex-end;
     margin-bottom: 20px;
     margin-right: 10px;
 }
