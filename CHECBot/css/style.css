@@ -43,8 +43,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-left: 10px;
 }
 
+.tituloCustom {
+    font-size: 30px;
+    font-weight: bold;
+}
 
 .botonCerrarSesion {
     display: flex;
@@ -71,8 +76,23 @@
 }
 
 .enunciado {
+    font-size: 22px;
+    font-weight: bold;
     height: 240px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
+
+
+/* Caja de chat */
+.zoomInDown {
+    animation-duration: 1.5s;
+    animation-delay: 1s;
+}
+
+.bounceInDown{
+    animation-duration: 2.5s;
+    animation-delay: 1.5s;
+}
+

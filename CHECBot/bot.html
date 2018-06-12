@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="css/textAnimated.scss">
     <link rel="stylesheet" href="css/style.css">
@@ -19,12 +21,12 @@
 
     <div class="contenido">
         <div class="titulo">
-            <h2>BIENVENIDO, Soy CHECbot</h2>
+            <h2 class="tituloCustom animated bounceInLeft">BIENVENIDO, Soy CHECBOT 😀</h2>
             <div class="enunciado">
-                <span>Inicia una conversación saludandome</span>
+                <span class="animated swing">Inicia una conversación saludandome 👋</span>
             </div>
             <div class="imagenCurva">
-                <img class="arrow" src="img/Curved_Arrow.png" alt="">
+                <img class="arrow animated bounce" src="img/Curved_Arrow.png" alt="">
             </div>
         </div>
 
@@ -33,7 +35,7 @@
                 <!-- content generated with JS -->
             </div>
 
-            <div class="card">
+            <div class="card animated zoomInDown">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img src="" alt="" class="activator" />
                 </div>
@@ -47,11 +49,11 @@
         <div class="logos">
             <div class="botonCerrarSesion">
 
-                <a id="logoutButton" class="btn-floating btn-large waves-effect waves-light blue">
+                <a id="logoutButton" class="btn-floating btn-large waves-effect waves-light blue btn tooltipped animated zoomIn" data-position="left" data-tooltip="Cerrar Sesión">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
             </div>
-            <div class="contenedorLogos">
+            <div class="contenedorLogos animated bounceInDown">
                 <img class="logoCiad" src="img/LogoCiad_Abril02-01.png" alt="">
                 <img class="logoUmChec" src="img/LogoUMChec-01.png" alt="">
             </div>
