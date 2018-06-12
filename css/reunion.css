@@ -90,12 +90,11 @@ body {
     justify-content: space-around;
 }
 
-
-.columnaDos{
+.columnaDos {
     width: 38%;
 }
 
-.columnaUno{
+.columnaUno {
     width: 48%;
 }
 
@@ -204,7 +203,7 @@ li.highlight {
 }
 
 #connected {
-    width: 100%;    
+    width: 100%;
     overflow: hidden;
     margin: auto;
 }
@@ -215,6 +214,23 @@ li.highlight {
 
 .connected.no2 {
     float: right;
+}
+
+.dual-list .list-group {
+    margin-top: 8px;
+}
+
+.list-left li,
+.list-right li {
+    cursor: pointer;
+}
+
+.list-arrows {
+    padding-top: 100px;
+}
+
+.list-arrows button {
+    margin-bottom: 20px;
 }
 
 .sk-circle {
