@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-
 /*** left menu ***/
 
 .sidebar {
@@ -169,4 +168,9 @@
     display: flex !important;
     align-items: baseline;
     justify-content: space-between;
+}
+
+.iconoOnline {
+    font-size: 3.4em;
+    color: whitesmoke;
 }

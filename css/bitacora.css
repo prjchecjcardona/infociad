@@ -134,6 +134,10 @@ body {
     justify-content: space-around
 }
 
+.iconoOnline {
+    font-size: 3.4em;
+    color: whitesmoke;
+}
 
 .sk-circle {
     margin-left: 11%;

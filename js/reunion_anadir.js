@@ -5,6 +5,19 @@ $(document).ready(function () {
     cargarBloque(1);
     $('[data-toggle="tooltip"]').tooltip()
 
+
+    // Encargado de hacer el arrastrar de la reunión
+    $('.sortable').sortable();
+    $('.handles').sortable({
+        handle: 'span'
+    });
+    $('.connected').sortable({
+        connectWith: '.connected'
+    });
+    $('.exclude').sortable({
+        items: ':not(.disabled)'
+    });
+
     $('#logoutButton').click(function () {
         logout()
     });
@@ -460,8 +473,8 @@ function cargarNombre() {
 
     var nombre = localStorage.getItem('nombre');
     $('#cargarNombre').html(nombre);
-  
-  }
+
+}
 
 function addBitacora(guardarOtro) {
 

@@ -90,6 +90,15 @@ body {
     justify-content: space-around;
 }
 
+
+.columnaDos{
+    width: 38%;
+}
+
+.columnaUno{
+    width: 48%;
+}
+
 .barraLateralCollapse {
     width: 42px;
     transition: all 0.5s ease-in-out;
@@ -134,6 +143,78 @@ body {
 .tituloSelect {
     display: flex;
     justify-content: space-around
+}
+
+.iconoOnline {
+    font-size: 3.4em;
+    color: whitesmoke;
+}
+
+.connected,
+.sortable,
+.exclude,
+.handles {
+    padding: 0;
+    width: 310px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.sortable.grid {
+    overflow: hidden;
+}
+
+.connected li,
+.sortable li,
+.exclude li,
+.handles li {
+    list-style: none;
+    border: 1px solid #CCC;
+    background: #F6F6F6;
+    font-family: "Tahoma";
+    color: #1C94C4;
+    margin: 5px;
+    padding: 5px;
+    height: 28px;
+    cursor: grab;
+}
+
+.handles span {
+    cursor: move;
+}
+
+li.disabled {
+    opacity: 0.5;
+}
+
+.sortable.grid li {
+    line-height: 80px;
+    float: left;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+}
+
+li.highlight {
+    background: #FEE25F;
+}
+
+#connected {
+    width: 100%;    
+    overflow: hidden;
+    margin: auto;
+}
+
+.connected {
+    float: left;
+}
+
+.connected.no2 {
+    float: right;
 }
 
 .sk-circle {

@@ -54,10 +54,10 @@ function logout() {
 
 
 }
-
+/* 
 function cargarNombre() {
 
   var nombre = localStorage.getItem('nombre');
   $('#cargarNombre').html(nombre);
 
-}
+} */

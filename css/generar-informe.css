@@ -157,6 +157,11 @@ body {
     margin: 0.05em;
 }
 
+.iconoOnline {
+    font-size: 3.4em;
+    color: whitesmoke;
+}
+
 .sk-circle {
     margin-left: 23%;
     margin-right: 23%;

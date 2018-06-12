@@ -40,7 +40,7 @@ body {
 
 .sizeIconCiad {
     font-size: 6em;
-    color: red
+    color: green
 }
 
 .sizeIconChec {
@@ -127,4 +127,9 @@ body {
 .customSelect {
     display: flex;
     justify-content: space-between;
+}
+
+.iconoOnline {
+    font-size: 3.4em;
+    color: whitesmoke;
 }
