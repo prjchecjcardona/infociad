@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="css/side-bar.css">
     <link rel="stylesheet" href="css/fade-in.css">
     <link rel="stylesheet" href="css/reunion.css">
+    <link rel="stylesheet" href="css/drag_drop.css">
 
-    <title>Añadir Bitacora - CIAD</title>
+    <title>Añadir Reunión - CIAD</title>
 </head>
 
 <body>
@@ -270,6 +271,84 @@
                                 </div>
                             </div>
                         </div>
+
+                        <label for="">Invitados a la Reunión</label>
+                            <div class="row">
+                                <div class="dual-list list-left col-md-5">
+                                    <div class="well text-right">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h5>Disponibles</h5>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Buscar" name="SearchDualList">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text selector" title="select all">
+                                                            <i class="far fa-square"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">bootstrap-duallist</li>
+                                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                                            <li class="list-group-item">Morbi leo risus</li>
+                                            <li class="list-group-item">Porta ac consectetur ac</li>
+                                            <li class="list-group-item">Vestibulum at eros</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="list-arrows col-md-1 text-center">
+                                    <button class="btn btn-default btn-sm move-left">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </button>
+
+                                    <button class="btn btn-default btn-sm move-right">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
+
+                                <div class="dual-list list-right col-md-5">
+                                    <div class="well">
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <h5>Invitados</h5>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Buscar" name="SearchDualList">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text selector" title="select all">
+                                                            <i class="far fa-square"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <ul class="list-group">
+                                            <li class="list-group-item">Cras justo odio</li>
+                                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                                            <li class="list-group-item">Morbi leo risus</li>
+                                            <li class="list-group-item">Porta ac consectetur ac</li>
+                                            <li class="list-group-item">Vestibulum at eros</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
                     </div>
 
                     <div class="columnaDos">
@@ -298,6 +377,10 @@
                         <small id="helpId" class="form-text text-muted">Selecciona si deseas añadir alguna de las opciones de firma al acta.</small>
 
                         <br>
+                        <br>
+                    </div>
+                    
+                </div>
                         <div class="agrupacionBotones">
                             <button type="button" class="btn btn-danger marginBoton" id="cancelarBoton">
                                 <i class="fas fa-times"></i> Cancelar</button>
@@ -306,10 +389,6 @@
                             <button type="button" class="btn btn-success marginBoton" id="guardarSalirBoton">
                                 <i class="fas fa-door-open"></i> Guardar y salir</button>
                         </div>
-                        <br>
-                    </div>
-
-                </div>
 
 
             </div>
@@ -369,9 +448,6 @@
 
         </div>
     </div>
-
-
-
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -385,8 +461,7 @@
 <script src="https://unpkg.com/promise-polyfill"></script>
 <script src="js/elements/side-bar.js"></script>
 <script src="js/elements/datepicker.js"></script>
-<script src="js/elements/jquery.sortable.js"></script>
-
+<script src="js/elements/drag_drop.js"></script>
 <script src="js/reunion_anadir.js"></script>
 
 

@@ -1,12 +1,8 @@
-<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
- -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
 <link rel="stylesheet" href="css/drag_drop.css">
-<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
- -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -14,37 +10,25 @@
 
 <div class="container">
     <div class="row">
-
         <div class="dual-list list-left col-md-5">
             <div class="well text-right">
                 <div class="row">
-                    <div class="col-md-10">
-
-
+                    <div class="col-md-12">
+                        <h3>No irán</h3>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                                <span class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </span>
                             </div>
                             <input type="text" class="form-control" placeholder="Buscar" name="SearchDualList">
                             <div class="input-group-append">
-                                    <span class="input-group-text">.00</span>
-                                  </div>
+                                <span class="input-group-text selector" title="select all">
+                                    <i class="far fa-square"></i>
+                                </span>
+                            </div>
                         </div>
 
-
-                        <!-- <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fas fa-search"></i>
-                            </span>
-                            <input type="text" name="SearchDualList" class="form-control" placeholder="Buscar" />
-                        </div> -->
-                    </div>
-                    <div class="col-md-2">
-                        <div class="btn-group">
-                            <a class="btn btn-default selector" title="select all">
-                                <i class="far fa-square"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <ul class="list-group">
@@ -70,20 +54,23 @@
         <div class="dual-list list-right col-md-5">
             <div class="well">
                 <div class="row">
-                    <div class="col-md-2">
-                        <div class="btn-group">
-                            <a class="btn btn-default selector" title="select all">
-                                <i class="far fa-square"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-10">
+
+                    <div class="col-md-12">
+                        <h3>Irán</h3>
                         <div class="input-group">
-                            <input type="text" name="SearchDualList" class="form-control" placeholder="Buscar" />
-                            <span class="input-group-addon">
-                                <i class="fas fa-search"></i>
-                            </span>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Buscar" name="SearchDualList">
+                            <div class="input-group-append">
+                                <span class="input-group-text selector" title="select all">
+                                    <i class="far fa-square"></i>
+                                </span>
+                            </div>
                         </div>
+
                     </div>
                 </div>
                 <ul class="list-group">
