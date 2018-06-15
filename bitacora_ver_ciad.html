@@ -104,7 +104,7 @@
                             </a>
                             <ul class="sub-menu collapse" id="reunion">
                                 <li>
-                                    <a href="#">
+                                    <a href="reunion_ver.html">
                                         <i class="far fa-eye"></i>
                                         <span class="nav-label">Ver Reunión</span>
                                     </a>
@@ -118,16 +118,27 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="far fa-hand-point-up"></i>
-                                <span class="nav-label">Añadir Solicitud</span>
+                            <a href="#" data-toggle="collapse" data-target="#pendiente" class="collapsed active customCollapseUno">
+                                <div class="customCollpaseDos">
+                                    <i class="fas fa-hand-point-right"></i>
+                                    <span class="nav-label">Pendientes</span>
+                                </div>
+                                <span class="fa fa-chevron-left pull-right customCollapse"></span>
                             </a>
-                        </li>
-                        <li>
-                            <a href="generar_informe_ciad.html">
-                                <i class="far fa-file-alt"></i>
-                                <span class="nav-label">Generar informe</span>
-                            </a>
+                            <ul class="sub-menu collapse" id="pendiente">
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-eye"></i>
+                                        <span class="nav-label">Ver Pendiente</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="pendiente_anadir.html">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <span class="nav-label">Añadir Pendiente</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#" data-toggle="collapse" data-target="#bitacora" class="collapsed active customCollapseUno">
@@ -151,6 +162,12 @@
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="generar_informe_ciad.html">
+                                <i class="far fa-file-alt"></i>
+                                <span class="nav-label">Generar informe</span>
+                            </a>
                         </li>
                     </ul>
                 </div>

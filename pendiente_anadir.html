@@ -11,11 +11,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/sweetalert2/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css"
+    />
     <link rel="stylesheet" href="css/side-bar.css">
     <link rel="stylesheet" href="css/fade-in.css">
-    <link rel="stylesheet" href="css/detalle_actividad_ver.css">
+    <link rel="stylesheet" href="css/pendiente.css">
+    <link rel="stylesheet" href="css/drag_drop.css">
 
-    <title>Ver Detalle Actividad - CIAD</title>
+    <title>Añadir Pendiente - CIAD</title>
 </head>
 
 <body>
@@ -104,7 +107,7 @@
                             </a>
                             <ul class="sub-menu collapse" id="reunion">
                                 <li>
-                                    <a href="#">
+                                    <a href="reunion_ver.html">
                                         <i class="far fa-eye"></i>
                                         <span class="nav-label">Ver Reunión</span>
                                     </a>
@@ -127,7 +130,7 @@
                             </a>
                             <ul class="sub-menu collapse" id="pendiente">
                                 <li>
-                                    <a href="reunion_ver.html">
+                                    <a href="#">
                                         <i class="far fa-eye"></i>
                                         <span class="nav-label">Ver Pendiente</span>
                                     </a>
@@ -175,8 +178,8 @@
         </div>
 
         <div class="contenido">
-            <div class="columnaUno">
-                <h4>VER ACTIVIDAD SEMANAL</h4>
+            <div class="">
+                <h4>AÑADIR PENDIENTE</h4>
                 <div class="tituloSelect">
                     <span>PROYECTO</span>
                     <span>BLOQUE</span>
@@ -229,70 +232,87 @@
                     </select>
 
                 </div>
-                <small id="helpId" class="form-text text-muted">Selecciona las opciones indicadas hasta llegar a la selección de producto, asi se habilitará la tabla con
-                    las actividades asociadas al producto seleccionado.</small>
+                <small id="helpId" class="form-text text-muted">Selecciona las opciones correspondientes hasta llegar a la selección de producto, asi se habilitará los campos
+                    de añadir registro de reunión.</small>
+
+
                 <br>
-                <div class="tituloSelectDate">
-                    <span>AÑO</span>
-                    <span>MES</span>
 
+                <div class="contenedorInfo">
+
+                    <div class="columnaUno">
+
+                        <div class="form-group">
+                            <label for="">Título</label>
+                            <input type="text" class="form-control" name="" id="tituloPendiente" aria-describedby="helpId" placeholder="" disabled="">
+                            <small id="helpId" class="form-text text-muted">Ingresa el título del pendiente.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Descripción</label>
+                            <textarea class="form-control" name="" id="descripcionPendiente" rows="3" disabled=""></textarea>
+                            <small id="helpId" class="form-text text-muted">Ingresa la descripción del pendiente</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Solicitado por</label>
+                            <input type="text" class="form-control" name="" id="solitadoPorPendiente" aria-describedby="helpId" placeholder="" disabled="">
+                            <small id="helpId" class="form-text text-muted">Ingresa el nombre completo de quién solicitó el pendiente.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Responsable</label>
+                            <input type="text" class="form-control" name="" id="responsablePendiente" aria-describedby="helpId" placeholder="" disabled="">
+                            <small id="helpId" class="form-text text-muted">Ingresa el nombre completo del responsable del Pendiente.</small>
+                        </div>
+
+                    </div>
+
+                    <div class="columnaDos">
+
+
+                        <div class="form-group">
+                            <label for="">Fecha Estimada de Inicio</label>
+                            <div class="input-group date" id="fechaEstimadaInicio" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" id="fechaEstimadaDeInicio" data-target="#fechaEstimadaInicio"
+                                    disabled="" />
+                                <div class="input-group-append" data-target="#fechaEstimadaInicio" data-toggle="datetimepicker">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <small id="helpId" class="form-text text-muted">Ingresa la fecha estimada de inicio.</small>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Fecha Estimada de Finalización</label>
+                            <div class="input-group date" id="fechaEstimadaFin" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" id="fechaEstimadaDeFin" data-target="#fechaEstimadaFin" disabled=""
+                                />
+                                <div class="input-group-append" data-target="#fechaEstimadaFin" data-toggle="datetimepicker">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <small id="helpId" class="form-text text-muted">Ingresa la fecha estimada de inicio.</small>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="customSelectDate">
 
-
-                    <select class="form-control selectorDate" id="anoSelect">
-                        <option value="-1">Selecciona...</option>
-                        <option value="2018">2018</option>
-                    </select>
-
-                    <select class="form-control selectorDate" id="mesSelect">
-                        <option value="-1">Selecciona...</option>
-                        <option value="1">Enero</option>
-                        <option value="2">Febrero</option>
-                        <option value="3">Marzo</option>
-                        <option value="4">Abril</option>
-                        <option value="5">Mayo</option>
-                        <option value="6">Junio</option>
-                        <option value="7">Julio</option>
-                        <option value="8">Agosto</option>
-                        <option value="9">Septiembre</option>
-                        <option value="10">Octubre</option>
-                        <option value="11">Noviembre</option>
-                        <option value="12">Diciembre</option>
-                    </select>
-                </div>
-                <small id="helpId" class="form-text text-muted"> A continuación selecciona el año y mes para filtrar las actividades asociadas al producto.</small>
-                <br>
-                <!-- <div class="list-group" id="listaDetalleActividad">
-                </div> -->
-
-
-                <div class="tablaActividadSemanal">
-                    <table class="table table-sm table-bordered table-hover table-fixed">
-                        <thead class="thead-dark">
-                            <tr>
-                                <!-- <th scope="col">Proyecto</th> -->
-                                <th scope="col">Bloque</th>
-                                <th scope="col">Objetivo</th>
-                                <th scope="col">Producto</th>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Detalle Actividad</th>
-                                <th scope="col">Descripción</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tablaActividadSemanal">
-                        </tbody>
-                    </table>
-                </div>
-                <br>
                 <div class="agrupacionBotones">
-                    <button type="button" class="btn btn-warning marginBoton" id="cancelarBoton">
-                        <i class="fas fa-door-open"></i> Salir</button>
-                    <!-- <button type="button" class="btn btn-warning marginBoton" id="guardarOtroBoton">
-                        <i class="fas fa-save"></i> Guardar y realizar otro registro</button>
+                    <button type="button" class="btn btn-danger marginBoton" id="cancelarBoton">
+                        <i class="fas fa-times"></i> Cancelar</button>
+                    <button type="button" class="btn btn-warning marginBoton" id="guardarOtroBoton">
+                        <i class="fas fa-save"></i> Guardar y realizar otro pendiente</button>
                     <button type="button" class="btn btn-success marginBoton" id="guardarSalirBoton">
-                        <i class="fas fa-door-open"></i> Guardar y salir</button> -->
+                        <i class="fas fa-door-open"></i> Guardar y salir</button>
                 </div>
+
+
             </div>
 
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -316,41 +336,8 @@
                     </div>
                 </div>
             </div>
-
-
-            <!-- <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar..." id="inputSearch">
-                    <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="button" data-toggle="modal" data-target=".bd-example-modal-lg" id="buttonSearch">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </span>
-                </div> -->
-
-
-            <!--  <div class="grupoDescripcionEvidencia">
-
-                    <div class="form-group">
-                        <label for="descripcionArea">Descripción</label>
-                        <textarea class="form-control" id="descripcionArea" rows="6"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="input-group input-file" name="Fichier1">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default btn-choose" type="button">Elige</button>
-                            </span>
-                            <input type="text" class="form-control" placeholder='Seleccionar Evidencia' />
-                            <span class="input-group-btn">
-                                <button class="btn btn-warning btn-reset" type="button">Resetear</button>
-                            </span>
-                        </div>
-                    </div>
-                </div> -->
-
         </div>
     </div>
-
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -358,9 +345,14 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="https://unpkg.com/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <script src="https://unpkg.com/promise-polyfill"></script>
 <script src="js/elements/side-bar.js"></script>
-<script src="js/detalle_actividad_ver.js"></script>
+<script src="js/elements/datepicker.js"></script>
+<script src="js/elements/drag_drop.js"></script>
+<script src="js/pendiente_anadir.js"></script>
+
 
 </html>

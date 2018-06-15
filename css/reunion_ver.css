@@ -7,11 +7,6 @@ body {
     margin-top: 5px;
 }
 
-.container {
-    width: 40%;
-    margin-left: 0px;
-}
-
 .profile-img {
     width: 60px;
     height: 60px;
@@ -80,23 +75,17 @@ body {
     justify-content: space-between;
     width: 100%;
     padding: 5px;
-    max-height: 567px;
-    overflow: auto;
-}
-
-.contenedorInfo {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 0.8em;
-}
-
-.columnaDos {
-    padding-left: 10px;
 }
 
 .columnaUno {
-    width: 48%;
+    width: 100%;
+}
+
+.columnaDos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 49%;
 }
 
 .barraLateralCollapse {
@@ -106,6 +95,11 @@ body {
 
 .selector {
     width: 31%;
+    margin-right: 0.5%
+}
+
+.selectorDate {
+    width: 24.5%;
     margin-right: 0.5%
 }
 
@@ -122,8 +116,7 @@ body {
 
 .agrupacionBotones {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+    justify-content: flex-end
 }
 
 .marginBoton {
@@ -135,6 +128,10 @@ body {
     justify-content: space-between;
 }
 
+.customSelectDate {
+    display: flex;
+}
+
 #listaDetalleActividad {
     max-height: 30em;
     overflow: auto;
@@ -144,6 +141,21 @@ body {
 .tituloSelect {
     display: flex;
     justify-content: space-around
+}
+
+.tituloSelectDate {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+#tablaActividadSemanal {
+    font-size: 12px;
+}
+
+.tablaActividadSemanal {
+    max-height: 240px;
+    overflow: auto
 }
 
 .iconoOnline {
