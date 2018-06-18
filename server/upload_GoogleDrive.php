@@ -1,5 +1,5 @@
 <?php
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 /**
 *   Google Drive Class
 */
@@ -9,8 +9,8 @@ class GoogleDrive
   function __construct()
   {
     $this->appName    = 'Upload File To Google Drive';
-    $this->credPath   = __DIR__ . '/secrets/drive-php-upload.json';
-    $this->secretPath =  __DIR__ . '/secrets/client_secret.json';
+    $this->credPath   = __DIR__ . 'secrets/drive-php-upload.json';
+    $this->secretPath =  __DIR__ . 'secrets/client_secret.json';
     $this->scopes     = implode(' ', array(Google_Service_Drive::DRIVE));
   }
   /**
