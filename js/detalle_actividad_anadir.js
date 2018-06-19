@@ -407,41 +407,59 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro, bitac
                 dataType: "json",
                 success: function (response) {
 
-                    $.ajax({
-                        type: "post",
-                        url: "server/addEvidenciasSemanal.php",
-                        data: formData,
-                        processData: false,
-                        dataType: "json",
-                        contentType: false,
-                        success: function (response) {
-                            if (Array.isArray(response)) {
-                                $('.cargaLoader').hide();
-                                swal(
-                                    'Guardado',
-                                    'El Registro ha sido guardado',
-                                    'success'
-                                ).then(() => {
-                                    if (guardarOtro == 'guardarOtro') {
-                                        location.reload(true)
-                                    } else {
-                                        window.location.href = "dashboard_ciad.html"
-                                    }
-                                })
+                    console.log(archivo);
+                    
+                    if (archivo.length != 0) {
+                        $.ajax({
+                            type: "post",
+                            url: "server/addEvidenciasSemanal.php",
+                            data: formData,
+                            processData: false,
+                            dataType: "json",
+                            contentType: false,
+                            success: function (response) {
+                                if (Array.isArray(response)) {
+                                    $('.cargaLoader').hide();
+                                    swal(
+                                        'Guardado',
+                                        'El Registro ha sido guardado',
+                                        'success'
+                                    ).then(() => {
+                                        if (guardarOtro == 'guardarOtro') {
+                                            location.reload(true)
+                                        } else {
+                                            window.location.href = "dashboard_ciad.html"
+                                        }
+                                    })
 
-                            } else {
-                                swal({
-                                    title: '¡Ups!',
-                                    text: 'Hubo un error en la inserción del registro',
-                                    type: 'warning',
-                                    confirmButtonColor: '#3085d6',
-                                    confirmButtonText: 'Entiendo',
-                                    closeOnConfirm: false
-                                }, );
+                                } else {
+                                    swal({
+                                        title: '¡Ups!',
+                                        text: 'Hubo un error en la inserción del registro',
+                                        type: 'warning',
+                                        confirmButtonColor: '#3085d6',
+                                        confirmButtonText: 'Entiendo',
+                                        closeOnConfirm: false
+                                    }, );
 
+                                }
                             }
-                        }
-                    });
+                        });
+                    } else {
+                        $('.cargaLoader').hide();
+                        swal(
+                            'Guardado',
+                            'El Registro ha sido guardado',
+                            'success'
+                        ).then(() => {
+                            if (guardarOtro == 'guardarOtro') {
+                                location.reload(true)
+                            } else {
+                                window.location.href = "dashboard_ciad.html"
+                            }
+                        })
+
+                    }
 
 
                 }
@@ -499,8 +517,8 @@ function cargarNombre() {
 
     var nombre = localStorage.getItem('nombre');
     $('#cargarNombre').html(nombre);
-  
-  }
+
+}
 
 function addBitacora(guardarOtro) {
 

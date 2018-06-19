@@ -398,8 +398,6 @@ function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro) {
             });
         }
     })
-
-
 }
 
 function habilitarCamposRegistro() {
