@@ -55,9 +55,9 @@ function addEvidenciaQuery($con, $id_archivo, $nombre_archivo, $id_folder, $idRe
 function getQuery($con, $table, $fatherTable, $id_fk)
 {
     if (!is_null($fatherTable)) {
-        $sql = "SELECT * FROM $table WHERE $fatherTable = $id_fk";
+        $sql = "SELECT * FROM $table WHERE $fatherTable = $id_fk ORDER BY id$table";
     } else {
-        $sql = "SELECT * FROM $table";
+        $sql = "SELECT * FROM $table ORDER BY id$table";
     }
     return executeQuery($con, $sql);
 }

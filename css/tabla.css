@@ -1,0 +1,41 @@
+@media screen {
+    /* Contenido del fichero home.css */
+    .border {
+        border: 3px solid #000000 !important;
+        padding: 0.5em;
+    }
+    .tituloDetalleActividad {
+        display: flex;
+        justify-content: center;
+        border: 3px solid #000000 !important;
+        padding: 0.5em;
+    }
+    .encabezado {
+        display: none;
+        
+    }
+    .piePagina {
+        display: none;
+    }
+
+}
+
+@media print {
+    /* Contenido del fichero print.css */
+    .border {
+        border: 3px solid #000000 !important;
+        padding: 0.5em;
+    }
+    .tituloDetalleActividad {
+        display: flex;
+        justify-content: center;
+        border: 3px solid #000000 !important;
+        padding: 0.5em;
+    }
+    table,
+    tr,
+    td,
+    hr {
+        border: 3px solid #000000 !important;
+    }
+}
