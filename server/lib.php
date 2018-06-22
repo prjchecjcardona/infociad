@@ -104,4 +104,34 @@ class InfoApi
         return getRegistroActividadSemanal($this->con, $anio, $mes, $proyecto, $bloque, $objetivo, $producto);
     }
 
+    public function informeObjetivo()
+    {
+        return informeObjetivoQuery();
+    }
+
+    public function informeProducto()
+    {
+        return informeProductoQuery();
+    }
+
+    public function informeDetalleActividad()
+    {
+        return informeDetalleActividadQuery();
+    }
+
+    public function informeRegistroSemanal()
+    {
+        return informeRegistroSemanalQuery();
+    }
+
+    public function informeRegistroEvidencia()
+    {
+        return informeRegistroEvidenciaQuery();
+    }
+
+    public function informeResumen()
+    {
+        return informeResumenQuery();
+    }
+    
 }

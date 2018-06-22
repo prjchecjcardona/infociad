@@ -19,194 +19,198 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="agrupacionLogo">
-            <a class="navbar-brand" href="dashboard_ciad.html">
-                <img src="img/LogoCiad_Abril02-01_opt.png" width="30" height="30" class="d-inline-block align-top" alt=""> Info CIAD
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a href="#" class="button-left nav-item" data-toggle="tooltip" data-placement="right" title="Expandir/Contraer">
-                <span class="navbar-toggler-icon"></span>
-            </a>
-        </div>
-        <div class="agrupacionSignOut">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard_ciad.html" data-toggle="tooltip" data-placement="left" title="Menú Principal">
-                        <i class="fas fa-home"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="logoutButton" data-toggle="tooltip" data-placement="left" title="Cerrar Sesión">
-                        <i class="fas fa-sign-out-alt"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="heightScreen">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="agrupacionLogo">
+                <a class="navbar-brand" href="dashboard_ciad.html">
+                    <img src="img/LogoCiad_Abril02-01_opt.png" width="30" height="30" class="d-inline-block align-top" alt=""> Info CIAD
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="#" class="button-left nav-item" data-toggle="tooltip" data-placement="right" title="Expandir/Contraer">
+                    <span class="navbar-toggler-icon"></span>
+                </a>
+            </div>
+            <div class="agrupacionSignOut">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard_ciad.html" data-toggle="tooltip" data-placement="left" title="Menú Principal">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutButton" data-toggle="tooltip" data-placement="left" title="Cerrar Sesión">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    <div class="main">
+        <div class="main">
 
-        <div class="barraLateral">
-            <aside>
-                <div class="sidebar left ">
-                    <div class="user-panel">
-                        <div class="pull-left image">
-                            <i class="fas fa-user-tie iconoOnline"></i>
+            <div class="barraLateral">
+                <aside>
+                    <div class="sidebar left ">
+                        <div class="user-panel">
+                            <div class="pull-left image">
+                                <i class="fas fa-user-tie iconoOnline"></i>
+                            </div>
+                            <div class="pull-left info">
+                                <p id="cargarNombre"></p>
+                                <a class="textoEstado" href="#">
+                                    <i class="fa fa-circle text-success"></i> Conectado</a>
+                            </div>
                         </div>
-                        <div class="pull-left info">
-                            <p id="cargarNombre"></p>
-                            <a class="textoEstado" href="#">
-                                <i class="fa fa-circle text-success"></i> Conectado</a>
-                        </div>
-                    </div>
-                    <ul class="list-sidebar bg-default">
-                        <li>
-                            <a href="#" data-toggle="collapse" data-target="#actividad" class="collapsed active customCollapseUno">
-                                <div class="customCollpaseDos">
-                                    <i class="fas fa-boxes"></i>
-                                    <span class="nav-label">Actividades</span>
-                                </div>
-                                <span class="fa fa-chevron-left pull-right customCollapse"></span>
-                            </a>
-                            <ul class="sub-menu collapse" id="actividad">
-                                <li>
-                                    <a href="detalle_actividad_ver.html">
-                                        <i class="far fa-eye"></i>
-                                        <span class="nav-label">Ver Actividad</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="detalle_actividad_anadir.html">
-                                        <i class="fas fa-plus-circle"></i>
-                                        <span class="nav-label">Añadir Actividad</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="collapse" data-target="#reunion" class="collapsed active customCollapseUno">
-                                <div class="customCollpaseDos">
-                                    <i class="fas fa-users"></i>
-                                    <span class="nav-label">Reuniones</span>
-                                </div>
-                                <span class="fa fa-chevron-left pull-right customCollapse"></span>
-                            </a>
-                            <ul class="sub-menu collapse" id="reunion">
-                                <li>
-                                    <a href="reunion_ver.html">
-                                        <i class="far fa-eye"></i>
-                                        <span class="nav-label">Ver Reunión</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="reunion_anadir.html">
-                                        <i class="fas fa-plus-circle"></i>
-                                        <span class="nav-label">Añadir Reunión</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="collapse" data-target="#pendiente" class="collapsed active customCollapseUno">
-                                <div class="customCollpaseDos">
-                                    <i class="fas fa-hand-point-right"></i>
-                                    <span class="nav-label">Pendientes</span>
-                                </div>
-                                <span class="fa fa-chevron-left pull-right customCollapse"></span>
-                            </a>
-                            <ul class="sub-menu collapse" id="pendiente">
-                                <li>
-                                    <a href="#">
-                                        <i class="far fa-eye"></i>
-                                        <span class="nav-label">Ver Pendiente</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="pendiente_anadir.html">
-                                        <i class="fas fa-plus-circle"></i>
-                                        <span class="nav-label">Añadir Pendiente</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="collapse" data-target="#bitacora" class="collapsed active customCollapseUno">
-                                <div class="customCollpaseDos">
-                                    <i class="fas fa-book"></i>
-                                    <span class="nav-label">Bitácora</span>
-                                </div>
-                                <span class="fa fa-chevron-left pull-right customCollapse"></span>
-                            </a>
-                            <ul class="sub-menu collapse" id="bitacora">
-                                <li>
-                                    <a href="bitacora_ver_ciad.html">
-                                        <i class="far fa-eye"></i>
-                                        <span class="nav-label">Ver Bitácora</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="bitacora_anadir_ciad.html">
-                                        <i class="fas fa-plus-circle"></i>
-                                        <span class="nav-label">Añadir Bitácora</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="generar_informe_ciad.html">
-                                <i class="far fa-file-alt"></i>
-                                <span class="nav-label">Generar informe</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
-
-
-        <div class="contenidoDashboard">
-            <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=k475nre1s1gijscrhjbltpsf18%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=America%2FBogota"
-                style="border-width:0" width="100%" height="350" frameborder="0" scrolling="no"></iframe>
-
-
-            <div class="elementosSobrantes">
-                <div class="card pendientes">
-                    <div class="card-header">
-                        Pendientes
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-success">
-                                Actividad #1
-                                <span class="badge badge-primary badge-pill">4</span>
+                        <ul class="list-sidebar bg-default">
+                            <li>
+                                <a href="#" data-toggle="collapse" data-target="#actividad" class="collapsed active customCollapseUno">
+                                    <div class="customCollpaseDos">
+                                        <i class="fas fa-boxes"></i>
+                                        <span class="nav-label">Actividades</span>
+                                    </div>
+                                    <span class="fa fa-chevron-left pull-right customCollapse"></span>
+                                </a>
+                                <ul class="sub-menu collapse" id="actividad">
+                                    <li>
+                                        <a href="detalle_actividad_ver.html">
+                                            <i class="far fa-eye"></i>
+                                            <span class="nav-label">Ver Actividad</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="detalle_actividad_anadir.html">
+                                            <i class="fas fa-plus-circle"></i>
+                                            <span class="nav-label">Añadir Actividad</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-danger">
-                                Actividad #2
-                                <span class="badge badge-primary badge-pill">2</span>
+                            <li>
+                                <a href="#" data-toggle="collapse" data-target="#reunion" class="collapsed active customCollapseUno">
+                                    <div class="customCollpaseDos">
+                                        <i class="fas fa-users"></i>
+                                        <span class="nav-label">Reuniones</span>
+                                    </div>
+                                    <span class="fa fa-chevron-left pull-right customCollapse"></span>
+                                </a>
+                                <ul class="sub-menu collapse" id="reunion">
+                                    <li>
+                                        <a href="reunion_ver.html">
+                                            <i class="far fa-eye"></i>
+                                            <span class="nav-label">Ver Reunión</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="reunion_anadir.html">
+                                            <i class="fas fa-plus-circle"></i>
+                                            <span class="nav-label">Añadir Reunión</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-warning">
-                                Actividad #3
-                                <span class="badge badge-primary badge-pill">1</span>
+                            <li>
+                                <a href="#" data-toggle="collapse" data-target="#pendiente" class="collapsed active customCollapseUno">
+                                    <div class="customCollpaseDos">
+                                        <i class="fas fa-hand-point-right"></i>
+                                        <span class="nav-label">Pendientes</span>
+                                    </div>
+                                    <span class="fa fa-chevron-left pull-right customCollapse"></span>
+                                </a>
+                                <ul class="sub-menu collapse" id="pendiente">
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-eye"></i>
+                                            <span class="nav-label">Ver Pendiente</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="pendiente_anadir.html">
+                                            <i class="fas fa-plus-circle"></i>
+                                            <span class="nav-label">Añadir Pendiente</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="collapse" data-target="#bitacora" class="collapsed active customCollapseUno">
+                                    <div class="customCollpaseDos">
+                                        <i class="fas fa-book"></i>
+                                        <span class="nav-label">Bitácora</span>
+                                    </div>
+                                    <span class="fa fa-chevron-left pull-right customCollapse"></span>
+                                </a>
+                                <ul class="sub-menu collapse" id="bitacora">
+                                    <li>
+                                        <a href="bitacora_ver_ciad.html">
+                                            <i class="far fa-eye"></i>
+                                            <span class="nav-label">Ver Bitácora</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="bitacora_anadir_ciad.html">
+                                            <i class="fas fa-plus-circle"></i>
+                                            <span class="nav-label">Añadir Bitácora</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="generar_informe_ciad.html">
+                                    <i class="far fa-file-alt"></i>
+                                    <span class="nav-label">Generar informe</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
-                </div>
+                </aside>
+            </div>
 
-                <div class="ajusteAlerta">
-                    <div class="centradoElementos">
-                        <i class=" sizeIconCiad fas fa-check-circle"></i>
+
+            <div class="contenidoDashboard">
+                <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=k475nre1s1gijscrhjbltpsf18%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=America%2FBogota"
+                    style="border-width:0" width="100%" height="350" frameborder="0" scrolling="no"></iframe>
+
+
+                <div class="elementosSobrantes">
+                    <div class="card pendientes">
+                        <div class="card-header">
+                            Pendientes
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-success">
+                                    Actividad #1
+                                    <span class="badge badge-primary badge-pill">4</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-danger">
+                                    Actividad #2
+                                    <span class="badge badge-primary badge-pill">2</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-warning">
+                                    Actividad #3
+                                    <span class="badge badge-primary badge-pill">1</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <h3>Ya registraste las actividades de esta semana</h3>
+
+                    <div class="ajusteAlerta">
+                        <div class="centradoElementos">
+                            <i class=" sizeIconCiad fas fa-check-circle"></i>
+                        </div>
+                        <div class="text-center">
+                            <h3>Ya registraste las actividades de esta semana</h3>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>

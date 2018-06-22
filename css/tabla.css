@@ -1,41 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
 @media screen {
     /* Contenido del fichero home.css */
     .border {
-        border: 3px solid #000000 !important;
+        border: 2px solid #000000 !important;
         padding: 0.5em;
+    }
+    .table-bordered td,
+    .table-bordered th {
+        border: 2px solid #000000 !important;
     }
     .tituloDetalleActividad {
         display: flex;
         justify-content: center;
-        border: 3px solid #000000 !important;
+        border: 2px solid #000000 !important;
         padding: 0.5em;
     }
-    .encabezado {
-        display: none;
-        
+    #imagenEncabezado {
+        width: 100%;
     }
-    .piePagina {
-        display: none;
+    #imagenPiePagina {
+        width: 100%
     }
-
+    .container {
+        width: 80%
+    }
+    .contenedorImagen {
+        display: flex;
+        justify-content: center;
+        padding-top: 4em;
+    }
+    #logoCiad {
+        width: 30%
+    }
+    .contenedorTitulo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2em;
+    }
+    .tablaCustom {
+        width: 90%;
+    }
+    .contenedorTablaPrincipal {
+        display: flex;
+        justify-content: center;
+    }
+    thead {
+        height: 4em;
+    }
+    .verde {
+        width: 20px;
+        height: 20px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #5cb85c;
+        margin: 2px;
+    }
+    .amarillo {
+        width: 20px;
+        height: 20px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border-color: black;
+        border-width: 20px;
+        background: #c6c919;
+        margin: 2px;
+    }
+    .rojo {
+        width: 20px;
+        height: 20px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #bf2626;
+        margin: 2px;
+    }
+    .textoIndicador {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        font-size: 14px;
+    }
+    .tablaIndicadores {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 4.2em;
+    }
+    .table-bordered {
+        border: #000000;
+        border-width: 1em;
+    }
+    #tablaInformeMensual,
+    #tablaDetalleActividad,
+    #tablaControlAvance {
+        font-size: 14px;
+    }
+    .tituloTablaControl {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 @media print {
+    @page {}
     /* Contenido del fichero print.css */
     .border {
-        border: 3px solid #000000 !important;
+        border: 2px solid #000000 !important;
         padding: 0.5em;
+    }
+    .table-bordered td,
+    .table-bordered th {
+        border: 2px solid #000000 !important;
     }
     .tituloDetalleActividad {
         display: flex;
         justify-content: center;
-        border: 3px solid #000000 !important;
+        border: 2px solid #000000 !important;
         padding: 0.5em;
     }
     table,
     tr,
-    td,
-    hr {
-        border: 3px solid #000000 !important;
+    hr,
+        {
+        border: 2px solid #000000 !important;
+    }
+    #imagenEncabezado {
+        width: 100%
+    }
+    #imagenPiePagina {
+        width: 100%
+    }
+    .container {
+        width: 80%;
+        margin-left: 1cm;
+        margin-right: 1cm;
+    }
+    .contenedorImagen {
+        display: flex;
+        justify-content: center;
+        padding-top: 4em;
+    }
+    #logoCiad {
+        page-break-after: always;
+        width: 48%
+    }
+    .contenedorTitulo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2em;
+    }
+    .tablaCustom {
+        width: 90%;
+    }
+    .contenedorTablaPrincipal {
+        display: flex;
+        justify-content: center;
+    }
+    thead {
+        height: 4em;
+    }
+    .verde {
+        width: 20px;
+        height: 20px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #5cb85c;
+        margin: 2px;
+    }
+    .amarillo {
+        width: 20px;
+        height: 20px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border-color: black;
+        border-width: 20px;
+        background: #c6c919;
+        margin: 2px;
+    }
+    .rojo {
+        width: 20px;
+        height: 20px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #bf2626;
+        margin: 2px;
+    }
+    .textoIndicador {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .tablaIndicadores {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 4em;
+    }
+    .table-bordered {
+        border: #000000;
+        border-width: 1em;
+    }
+    #tablaInformeMensual,
+    #tablaDetalleActividad,
+    #tablaControlAvance {
+        font-size: 14px;
+    }
+    .tituloTablaControl {
+        display: flex;
+        justify-content: center;
     }
 }

@@ -26,16 +26,18 @@ function actSemanalQuery($con, $fecha, $descripcion, $idusuario, $detalleactivid
     return executeQuery($con, $sql);
 }
 
-function getLastActividadSemanal($con){
+function getLastActividadSemanal($con)
+{
     $sql = "SELECT MAX(idregistro_actividad_semanal) FROM registro_actividad_semanal";
     return executeQuery($con, $sql);
 }
 
-function getIdsEvidenciaName($con, $idRegistroActividad){
-    $sql = "SELECT bl.idbloque, 
-            ob.idobjetivo, 
-            pr.idproducto, 
-            da.iddetalle_actividad, 
+function getIdsEvidenciaName($con, $idRegistroActividad)
+{
+    $sql = "SELECT bl.idbloque,
+            ob.idobjetivo,
+            pr.idproducto,
+            da.iddetalle_actividad,
             (SELECT EXTRACT(YEAR FROM ras.fecha) FROM registro_actividad_semanal ras where ras.idregistro_actividad_semanal = $idRegistroActividad) as anio,
             (SELECT EXTRACT(MONTH FROM ras.fecha) FROM registro_actividad_semanal ras where ras.idregistro_actividad_semanal = $idRegistroActividad) as mes
             FROM registro_actividad_semanal ras
@@ -47,7 +49,8 @@ function getIdsEvidenciaName($con, $idRegistroActividad){
     return executeQuery($con, $sql);
 }
 
-function addEvidenciaQuery($con, $id_archivo, $nombre_archivo, $id_folder, $idRegistroActividadSemanal){
+function addEvidenciaQuery($con, $id_archivo, $nombre_archivo, $id_folder, $idRegistroActividadSemanal)
+{
     $sql = "INSERT INTO evidencia_registro_actividad VALUES(nextval('evidencia_registro_actividad_sec'), '$id_archivo', '$nombre_archivo', '$id_folder', $idRegistroActividadSemanal)";
     return executeQuery($con, $sql);
 }
@@ -107,57 +110,55 @@ function getRegistroActividadSemanal($con, $anio, $mes, $proyecto, $bloque, $obj
         join bloque bl on bl.idbloque = ob.bloque_fk
         join proyecto pro on pro.idproyecto = bl.proyecto_fk
         WHERE ";
-        $first=true;
-        if(!is_null($anio)){
-            if($first){
+        $first = true;
+        if (!is_null($anio)) {
+            if ($first) {
                 $sql .= "(SELECT EXTRACT(YEAR FROM ras.fecha)) = $anio";
                 $first = false;
-            }else {
+            } else {
                 $sql .= " AND (SELECT EXTRACT(YEAR FROM ras.fecha)) = $anio";
             }
         }
-        if(!is_null($mes)){
-            if($first){
+        if (!is_null($mes)) {
+            if ($first) {
                 $sql .= "(SELECT EXTRACT(MONTH FROM ras.fecha)) = $mes";
                 $first = false;
-            }else {
+            } else {
                 $sql .= " AND (SELECT EXTRACT(MONTH FROM ras.fecha)) = $mes";
             }
         }
-        if(!is_null($proyecto)){
-            if($first){
+        if (!is_null($proyecto)) {
+            if ($first) {
                 $sql .= "pro.idproyecto = $proyecto";
                 $first = false;
-            }else {
+            } else {
                 $sql .= " AND pro.idproyecto = $proyecto";
             }
         }
-        if(!is_null($bloque)){
-            if($first){
+        if (!is_null($bloque)) {
+            if ($first) {
                 $sql .= "bl.idbloque = $bloque";
                 $first = false;
-            }else {
+            } else {
                 $sql .= " AND bl.idbloque = $bloque";
             }
         }
-        if(!is_null($objetivo)){
-            if($first){
+        if (!is_null($objetivo)) {
+            if ($first) {
                 $sql .= "ob.idobjetivo = $objetivo";
                 $first = false;
-            }else {
+            } else {
                 $sql .= " AND ob.idobjetivo = $objetivo";
             }
         }
-        if(!is_null($producto)){
-            if($first){
+        if (!is_null($producto)) {
+            if ($first) {
                 $sql .= "pr.idproducto = $producto";
                 $first = false;
-            }else {
+            } else {
                 $sql .= " AND pr.idproducto = $producto";
             }
         }
-
-
 
     }
     return executeQuery($con, $sql);
@@ -169,3 +170,48 @@ function addBitacoraQuery($con, $titulo, $fecha, $descripcion, $producto_fk)
     return executeQuery($con, $sql);
 
 }
+
+
+function informeObjetivoQuery()
+{
+
+    return executeQuery();
+}
+
+
+function informeProductoQuery()
+{
+
+    return executeQuery();
+}
+
+
+function informeDetalleActividadQuery()
+{
+
+    return executeQuery();
+}
+
+
+function informeRegistroSemanalQuery()
+{
+
+    return executeQuery();
+}
+
+
+function informeRegistroEvidenciaQuery()
+{
+
+    return executeQuery();
+}
+
+
+function informeResumenQuery()
+{
+
+    return executeQuery();
+
+}
+
+

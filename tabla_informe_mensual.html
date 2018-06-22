@@ -15,9 +15,78 @@
 </head>
 
 <body>
+
     <div class="encabezado">
-        <img src="img/Encabezado.png" alt="">
+        <img id="imagenEncabezado" src="img/Encabezado_Vertical.png">
     </div>
+
+
+    <div class="contenedorImagen">
+        <img id="logoCiad" src="img/logo_ciad.png" alt="">
+    </div>
+
+    <div class="contenedorTitulo">
+        <h3>PROYECTO VOZ DEL CLIENTE</h3>
+        <h4>INFORME DE AVANCE</h4>
+        <h5>MAYO 2018</h5>
+    </div>
+
+    <section>
+        <div class="tablaIndicadores">
+            <div class="indicadores">
+                <div class="verde"></div>
+                <div class="amarillo"></div>
+                <div class="rojo"></div>
+            </div>
+            <div class="textoIndicador">
+                <span>Al día con el cronograma</span>
+                <span>Medianamente Retrasado</span>
+                <span>Retrasado</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="tituloTablaControl">
+        <h3>Cuadro Control de Avance</h3>
+    </div>
+
+    <div class="contenedorTablaPrincipal">
+        <table class="table table-sm table-bordered table-hover table-fixed tablaCustom">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Bloque</th>
+                    <th scope="col">Objetivo</th>
+                    <th scope="col">Producto / Entregable</th>
+                    <th scope="col">% Avance Diciembre</th>
+                    <th scope="col">% Avance Febrero</th>
+                    <th scope="col">% Avance Marzo</th>
+                    <th scope="col">% Avance Abril</th>
+                    <th scope="col">% Avance Mayo</th>
+                    <th scope="col">% Avance Acumulado</th>
+                </tr>
+            </thead>
+            <tbody id="tablaControlAvance">
+                <tr>
+                    <td scope="row">1. ANALYTICS: Selección de aplicación para realizar analítica de sentimientos y emociones en diferentes
+                        canales como audio, chat, escrito- Dominio de cómo convertir las llamadas a watson - Speech analytcs
+                        - Aprendizaje de text analytics.</td>
+                    <td>1. Realizar un benchmarking de las herramientas y proveedores de aplicaciones de voz del cliente.</td>
+                    <td>1. Documento con el informe del Benchmarking (Speech to Text, Text Analytics, VoC, audio)</td>
+                    <td>90 %</td>
+                    <td>0 %</td>
+                    <td>0 %</td>
+                    <td>10 %</td>
+                    <td>0 %</td>
+                    <td>100 %</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
 
     <div class="container">
         <hr>
@@ -36,14 +105,24 @@
                     <th scope="col">Objetivo</th>
                     <th scope="col">Entregable</th>
                     <th scope="col">% Avance Mes</th>
-                    <th scope="col">Fecha</th>
+                    <th scope="col">% Acumulado Cumplimiento</th>
                 </tr>
             </thead>
             <tbody id="tablaInformeMensual">
+                <tr>
+                    <td scope="row">Realizar un benchmarking de las herramientas y proveedores de aplicaciones de voz del cliente.
+                    </td>
+                    <td>Documento con el informe del Benchmarking (Speech to Text, Text Analytics, VoC, audio)
+                    </td>
+                    <td>0%</td>
+                    <td>100%</td>
+
+
+                </tr>
             </tbody>
         </table>
         <div class="tituloDetalleActividad">
-            <span>DETALLE ACTIVIDADES</span>
+            <h3>DETALLE ACTIVIDADES</h3>
         </div>
         <table class="table table-sm table-bordered table-hover table-fixed">
             <thead class="thead-dark">
@@ -54,13 +133,22 @@
                     <th scope="col">Evidencia</th>
                 </tr>
             </thead>
-            <tbody id="tablaInformeMensual">
+            <tbody id="tablaDetalleActividad">
+                <tr>
+                    <td scope="row">B1-O5-P5-A1</td>
+                    <td>1. Definir la o las herramientas de Analítica de texto que aplicarán los algoritmos sobre los datos definidos,
+                        de acuerdo con las conclusiones obtenidas del benchmarking</td>
+                    <td>Se realizó el informe de definición de herramientas y algoritmos de Text Analytics
+                    </td>
+                    <td>B1-O5-P5-A1-2018- 05-E1
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
 
     <div class="piePagina">
-        <img src="img/pie_de_pagina.png" alt="">
+        <img id="imagenPiePagina" src="img/pie_de_pagina.png" alt="">
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>

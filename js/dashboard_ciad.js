@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  var heightScreen = $(window).height(); // returns height of browser viewport
+  $('.heightScreen').css("height", heightScreen - 74)
   cargarNombre();
   validarSesion();
   $('#logoutButton').click(function () {

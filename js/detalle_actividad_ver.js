@@ -10,31 +10,6 @@ $(document).ready(function () {
         logout()
     });
 
-    $('#buttonSearch').click(function (e) {
-        e.preventDefault();
-        var busqueda = $('#inputSearch').val()
-        buscar(busqueda)
-    });
-
-    //Ruta boton guardar otro registro
-    $('#guardarOtroBoton').click(function () {
-        var descripcion = $('#descripcionArea').val()
-        var iddetalleactividad = $('.list-group-item-warning').attr("value")
-        addActividadSemanal(descripcion, iddetalleactividad, 'guardarOtro');
-    });
-
-    //Ruta boton guardar y salir
-    $('#guardarSalirBoton').click(function () {
-        var descripcion = $('#descripcionArea').val()
-        var iddetalleactividad = $('.list-group-item-warning').attr("value")
-        addActividadSemanal(descripcion, iddetalleactividad, 'guardarSalir');
-    });
-
-    //Ruta boton cancelar
-    $('#cancelarBoton').click(function () {
-        window.location.href = "dashboard_ciad.html"
-    });
-
 
     $('#proyectoSelect').change(function () {
         $('#tablaActividadSemanal').empty();
@@ -68,7 +43,6 @@ $(document).ready(function () {
 });
 
 function asignarEventoBloque() {
-
     $('#bloqueSelect').change(function () {
         $('#objetivoSelect').empty()
         $('#productoSelect').empty()
@@ -87,6 +61,7 @@ function asignarEventoBloque() {
         <div class="sk-circle11 sk-child"></div>
         <div class="sk-circle12 sk-child"></div>
     </div>`);
+        cargarActividadSemanal()
 
         var selected = $('#bloqueSelect option:selected').attr("value")
         cargarObjetivo(selected)
@@ -111,7 +86,8 @@ function asignarEventoObjetivo() {
         <div class="sk-circle10 sk-child"></div>
         <div class="sk-circle11 sk-child"></div>
         <div class="sk-circle12 sk-child"></div>
-    </div>`);
+        </div>`);
+        cargarActividadSemanal()
 
         var selected = $('#objetivoSelect option:selected').attr("value")
         cargarProducto(selected)
@@ -120,9 +96,7 @@ function asignarEventoObjetivo() {
 }
 
 function asignarEventoProducto() {
-    $('#productoSelect').click(function () {
-        habilitarCamposRegistro();
-    });
+
     $('#productoSelect').change(function () {
         $('#listaDetalleActividad').empty()
         $("#listaDetalleActividad").replaceWith(`<div class="sk-circle" id="detalleActividadLoader">
@@ -138,10 +112,9 @@ function asignarEventoProducto() {
         <div class="sk-circle10 sk-child"></div>
         <div class="sk-circle11 sk-child"></div>
         <div class="sk-circle12 sk-child"></div>
-    </div>`);
+        </div>`);
+        cargarActividadSemanal()
 
-        var selected = $('#productoSelect option:selected').attr("value")
-        cargarBitacora(selected)
     });
 
 }
@@ -294,72 +267,6 @@ function cargarProducto(idobjetivo) {
     });
 }
 
-function cargarDetalleActividad(idproducto) {
-    var data = {
-        fk_campo: "producto_fk",
-        fk_id: idproducto
-    }
-    $.ajax({
-        type: "get",
-        url: "server/getDetalleActividad.php",
-        data: data,
-        dataType: "json",
-        success: function (response) {
-            $('#listaDetalleActividad').removeAttr("disabled");
-            if (response.length == 0) {
-                swal({
-                    title: '¡Ups!',
-                    text: 'No hay Detalle Actividad para para este Producto',
-                    type: 'warning',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Entiendo',
-                    closeOnConfirm: false
-                }, );
-            } else {
-                $("#detalleActividadLoader").replaceWith(`<div class="list-group" id="listaDetalleActividad">
-                </div>`);
-                response.forEach(element => {
-                    $('#listaDetalleActividad').append(`
-                    <a href="#" class="list-group-item list-group-item-action list-group-item-success detalleActividadClick" value=${element.iddetalle_actividad}>${element.nombre}</a>
-                    `)
-                    $('.detalleActividadClick').click(function () {
-                        $('.detalleActividadClick').removeClass('list-group-item-warning').addClass('list-group-item-success')
-                        $(this).removeClass("list-group-item-success").addClass("list-group-item-warning")
-
-                    });
-                });
-
-            }
-        }
-    });
-
-}
-
-function buscar(busqueda) {
-    var data = {
-        search: busqueda
-    }
-    if (busqueda != "") {
-        $.ajax({
-            type: "get",
-            url: "server/search.php",
-            data: data,
-            dataType: "json",
-            success: function (response) {
-                if (response.length == 0) {
-                    swal("No se encuentran resultados asociados a la búsqueda")
-                } else {
-                    response.forEach(element => {
-                        $('.resultadoBusqueda').append(`
-                    <a href="#" class="list-group-item list-group-item-action" idresultado=${element.id} type=${element.type}> ${element.type} - ${element.nombre}</a>
-                    <span>${element.id}</span>
-                    `)
-                    });
-                }
-            }
-        });
-    }
-}
 
 function formatDate(date) {
     var d = new Date(date),
@@ -371,66 +278,6 @@ function formatDate(date) {
     if (day.length < 2) day = '0' + day;
 
     return [year, month, day].join('-');
-}
-
-function addActividadSemanal(descripcion, iddetalleactividad, guardarOtro) {
-
-    var fecha = formatDate(new Date())
-
-
-    var data = {
-        fecha: fecha,
-        descripcion: descripcion,
-        idusuario: 1,
-        detalleactividad: iddetalleactividad
-    }
-    swal({
-        title: '¿Estás seguro de guardar?',
-        text: "",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, Guardar'
-    }).then((result) => {
-        if (result.value) {
-            $.ajax({
-                type: "post",
-                url: "server/addActividadSemanal.php",
-                data: data,
-                dataType: "json",
-                success: function (response) {
-                    if (Array.isArray(response)) {
-                        swal(
-                            'Guardado',
-                            'El Registro ha sido guardado',
-                            'success'
-                        ).then(() => {
-                            if (guardarOtro == 'guardarOtro') {
-                                location.reload(true)
-                            } else {
-                                window.location.href = "dashboard_ciad.html"
-                            }
-                        })
-
-                    } else {
-                        swal({
-                            title: '¡Ups!',
-                            text: 'Hubo un error en la inserción del registro',
-                            type: 'warning',
-                            confirmButtonColor: '#3085d6',
-                            confirmButtonText: 'Entiendo',
-                            closeOnConfirm: false
-                        }, );
-
-                    }
-                }
-            });
-        }
-    })
-
-
 }
 
 function habilitarCamposRegistro() {
@@ -487,8 +334,8 @@ function cargarNombre() {
 
     var nombre = localStorage.getItem('nombre');
     $('#cargarNombre').html(nombre);
-  
-  }
+
+}
 
 /* function cargarBitacora(idproducto) {
     var data = {
@@ -536,6 +383,7 @@ function cargarActividadSemanal() {
         dataType: "json",
         success: function (response) {
 
+            $('#tablaActividadSemanal').empty();
             response.forEach(element => {
                 $('#tablaActividadSemanal').append(`
                 <tr>
