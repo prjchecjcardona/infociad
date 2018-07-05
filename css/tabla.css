@@ -50,7 +50,8 @@ body {
         justify-content: center;
     }
     thead {
-        height: 4em;
+        text-align: center;
+        font-size: 14px;
     }
     .verde {
         width: 20px;
@@ -99,7 +100,8 @@ body {
     #tablaInformeMensual,
     #tablaDetalleActividad,
     #tablaControlAvance {
-        font-size: 14px;
+        font-size: 12px;
+        text-align: center;
     }
     .tituloTablaControl {
         display: flex;
@@ -147,7 +149,6 @@ body {
         padding-top: 4em;
     }
     #logoCiad {
-        page-break-after: always;
         width: 48%
     }
     .contenedorTitulo {
@@ -164,7 +165,8 @@ body {
         justify-content: center;
     }
     thead {
-        height: 4em;
+        text-align: center;
+        font-size: 14px;
     }
     .verde {
         width: 20px;
@@ -212,7 +214,7 @@ body {
     #tablaInformeMensual,
     #tablaDetalleActividad,
     #tablaControlAvance {
-        font-size: 14px;
+        font-size: 10px;
     }
     .tituloTablaControl {
         display: flex;

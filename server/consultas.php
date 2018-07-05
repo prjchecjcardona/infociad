@@ -34,10 +34,10 @@ function getLastActividadSemanal($con)
 
 function getIdsEvidenciaName($con, $idRegistroActividad)
 {
-    $sql = "SELECT bl.idbloque,
-            ob.idobjetivo,
-            pr.idproducto,
-            da.iddetalle_actividad,
+    $sql = "SELECT bl.numero as numero_bloque,
+            ob.numero as numero_objetivo,
+            pr.numero as numero_producto,
+            da.numero as numero_detalle_actividad,
             (SELECT EXTRACT(YEAR FROM ras.fecha) FROM registro_actividad_semanal ras where ras.idregistro_actividad_semanal = $idRegistroActividad) as anio,
             (SELECT EXTRACT(MONTH FROM ras.fecha) FROM registro_actividad_semanal ras where ras.idregistro_actividad_semanal = $idRegistroActividad) as mes
             FROM registro_actividad_semanal ras
@@ -171,13 +171,11 @@ function addBitacoraQuery($con, $titulo, $fecha, $descripcion, $producto_fk)
 
 }
 
-
 function informeObjetivoQuery()
 {
 
     return executeQuery();
 }
-
 
 function informeProductoQuery()
 {
@@ -185,13 +183,11 @@ function informeProductoQuery()
     return executeQuery();
 }
 
-
 function informeDetalleActividadQuery()
 {
 
     return executeQuery();
 }
-
 
 function informeRegistroSemanalQuery()
 {
@@ -199,19 +195,40 @@ function informeRegistroSemanalQuery()
     return executeQuery();
 }
 
-
 function informeRegistroEvidenciaQuery()
 {
 
     return executeQuery();
 }
 
-
-function informeResumenQuery()
+function informeResumenQuery($con)
 {
-
-    return executeQuery();
+    $sql = "select agp.idavance_general_producto, agp.anio as anio,
+    agp.mes as mes,
+	agp.numero_mes as numero_mes,
+    agp.porcentaje_avance as porcentaje_avance,
+    pro.nombre as nombre_producto,
+    obj.nombre as nombre_objetivo,
+    blo.nombre as nombre_bloque
+    from avance_general_producto agp
+    join producto pro on pro.idproducto = agp.producto_fk
+    join objetivo obj on obj.idobjetivo = pro.objetivo_fk
+    join bloque blo on blo.idbloque = obj.bloque_fk
+	order by nombre_bloque, nombre_objetivo, nombre_producto, anio, numero_mes";
+    return executeQuery($con, $sql);
 
 }
 
-
+function informeResumenMesQuery($con)
+{
+    $sql = "select agp.anio as anio,
+    agp.mes as mes,
+    agp.numero_mes as numero_mes
+    from avance_general_producto agp
+    join producto pro on pro.idproducto = agp.producto_fk
+    join objetivo obj on obj.idobjetivo = pro.objetivo_fk
+    join bloque blo on blo.idbloque = obj.bloque_fk
+    group by anio, mes, numero_mes
+    order by anio, numero_mes";
+    return executeQuery($con, $sql);
+}

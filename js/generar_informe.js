@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    cargarResumenInforme();
+});
+
 function genPDF() {
     var imgLogoCiad = 'img/logo_ciad.png'
     var imgEncabezado = 'img/Encabezado.png'
@@ -68,3 +72,60 @@ $('#informeSemanal').click(function () {
 /* $(document).ready(function () {
     cargarTablaActividad()
 }); */
+
+
+
+
+function cargarResumenInforme() {
+
+    $.ajax({
+        type: "get",
+        url: "server/informeResumenMes.php",
+        dataType: "json",
+        success: function (response) {
+            response.forEach(element => {
+                $('#cargaMes').append(`<th>% Avance ${element.mes}</th>`);
+            });
+        }
+    });
+
+    $.ajax({
+        type: "get",
+        url: "server/getProductos.php",
+        dataType: "json",
+        success: function (productos) {
+            var productos = productos;
+            $.ajax({
+                type: "get",
+                url: "server/informeResumen.php",
+                dataType: "json",
+                success: function (response) {
+                    let auxClase = 0;
+                    productos.forEach(productoActual => {
+                        let i = 0;
+                        response.forEach(element => {
+                            if (productoActual.nombre == element.nombre_producto) {
+                                if (i == 0) {
+                                    auxClase++
+                                    $('#tablaControlAvance').append(`
+                                    <tr class="fila${auxClase}" >
+                                    <td>${element.nombre_bloque}</td>
+                                    <td>${element.nombre_objetivo}</td>
+                                    <td>${element.nombre_producto}</td>
+                                    <td>${element.porcentaje_avance}%</td>
+                                </tr>`);
+                                    i = 1;
+                                } else {
+                                    $('#tablaControlAvance tr.fila' + auxClase).append(`
+                                <td>${element.porcentaje_avance}%</td>
+                                `);
+                                }
+                            }
+
+                        });
+                    });
+                }
+            });
+        }
+    });
+}

@@ -74,7 +74,7 @@ class InfoApi
             $i++;
             array_push($filesAndNames, array(
                 'file' => $file,
-                'newName' => "B" . $idsEvidencia[0]['idbloque'] . "-O" . $idsEvidencia[0]['idobjetivo'] . "-P" . $idsEvidencia[0]['idproducto'] . "-A" . $idsEvidencia[0]['iddetalle_actividad'] . "-" . $idsEvidencia[0]['anio'] . "-" . $idsEvidencia[0]['mes'] . "-E" . $i . "." . $extension,
+                'newName' => "B" . $idsEvidencia[0]['numero_bloque'] . "-O" . $idsEvidencia[0]['numero_objetivo'] . "-P" . $idsEvidencia[0]['numero_producto'] . "-A" . $idsEvidencia[0]['numero_detalle_actividad'] . "-" . $idsEvidencia[0]['anio'] . "-" . $idsEvidencia[0]['mes'] . "-E" . $i . "." . $extension,
             ));
         }
         return $filesAndNames;
@@ -131,7 +131,12 @@ class InfoApi
 
     public function informeResumen()
     {
-        return informeResumenQuery();
+        return informeResumenQuery($this->con);
+    }
+
+    public function informeResumenMes()
+    {
+        return informeResumenMesQuery($this->con);
     }
     
 }
